@@ -57,6 +57,15 @@ function init() {
     crc2.fill();
     crc2.closePath();
     crc2.stroke();
+    //3.Berg
+    crc2.beginPath();
+    crc2.moveTo(450, 600);
+    crc2.lineTo(650, 50);
+    crc2.lineTo(750, 600);
+    crc2.fillStyle = "#D8D8D8";
+    crc2.fill();
+    crc2.closePath();
+    crc2.stroke();
     //Skiberg
     crc2.beginPath();
     crc2.moveTo(800, 150);
@@ -71,9 +80,11 @@ function init() {
     crc2.moveTo(500, 600);
     crc2.lineTo(800, 350);
     crc2.stroke();
+    crc2.closePath();
     crc2.beginPath();
-    crc2.moveTo(700, 500);
-    crc2.lineTo(700, 520);
+    crc2.moveTo(650, 450);
+    crc2.lineTo(700, 450);
+    crc2.closePath();
     crc2.stroke();
     /*crc2.fillRect(600, 150, 50, 30);
     crc2.fillStyle = "#0101DF";

@@ -33,7 +33,7 @@ function init() {
     crc2.fill();
     //3.Wolke
     crc2.beginPath();
-    crc2.arc(140, 70, 20, 0, 2 * Math.PI);
+    crc2.arc(130, 70, 20, 0, 2 * Math.PI);
     crc2.fillStyle = "#F2F2F2";
     crc2.fill();
     //1.Berg
@@ -90,7 +90,7 @@ function init() {
     crc2.closePath();
     //Gondel
     crc2.fillStyle = "#151515";
-    crc2.fillRect(675, 470, 25, 10);
+    crc2.fillRect(665, 470, 25, 10);
     /*crc2.fillRect(600, 150, 50, 30);
     crc2.fillStyle = "#0101DF";
     crc2.fill();

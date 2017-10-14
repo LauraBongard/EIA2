@@ -91,15 +91,6 @@ function init() {
     //Gondel
     crc2.fillStyle = "#151515";
     crc2.fillRect(665, 470, 25, 10);
-    /*crc2.fillRect(600, 150, 50, 30);
-    crc2.fillStyle = "#0101DF";
-    crc2.fill();
-    crc2.closePath();
-    crc2.stroke();
-    crc2.fillRect(350, 350, 50, 30);
-    crc2.fillStyle = "#0101DF";
-    crc2.fill();
-    crc2.stroke();*/
     //B�ume
     crc2.beginPath();
     crc2.moveTo(20, 600);

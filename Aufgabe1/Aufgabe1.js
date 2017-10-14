@@ -10,9 +10,9 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 window.addEventListener("load", init);
 function init() {
     let canvas = document.getElementsByTagName("canvas")[0];
-    console.log(canvas);
+    //console.log(canvas);
     let crc2 = canvas.getContext("2d");
-    console.log(crc2);
+    //console.log(crc2);
     //Hintergrund: Himmel
     crc2.fillStyle = "#A9E2F3";
     crc2.fillRect(0, 0, 800, 600);
@@ -23,7 +23,7 @@ function init() {
     crc2.fill();
     //1.Wolke
     crc2.beginPath();
-    crc2.arc(70, 70, 20, 0, 2 * Math.PI);
+    crc2.arc(80, 70, 20, 0, 2 * Math.PI);
     crc2.fillStyle = "#F2F2F2";
     crc2.fill();
     //2.Wolke
@@ -33,7 +33,7 @@ function init() {
     crc2.fill();
     //3.Wolke
     crc2.beginPath();
-    crc2.arc(130, 70, 20, 0, 2 * Math.PI);
+    crc2.arc(120, 70, 20, 0, 2 * Math.PI);
     crc2.fillStyle = "#F2F2F2";
     crc2.fill();
     //1.Berg

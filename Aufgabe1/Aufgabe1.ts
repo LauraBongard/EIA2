@@ -12,10 +12,11 @@ window.addEventListener("load", init);
 
 function init(): void {
     let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
-    console.log(canvas);
+    //console.log(canvas);
 
     let crc2: CanvasRenderingContext2D = canvas.getContext("2d");
-    console.log(crc2);
+    //console.log(crc2);
+    
     //Hintergrund: Himmel
     crc2.fillStyle = "#A9E2F3";
     crc2.fillRect(0, 0, 800, 600);
@@ -28,7 +29,7 @@ function init(): void {
         
     //1.Wolke
     crc2.beginPath();
-    crc2.arc(70, 70, 20, 0, 2 * Math.PI);
+    crc2.arc(80, 70, 20, 0, 2 * Math.PI);
     crc2.fillStyle = "#F2F2F2";
     crc2.fill();
     //2.Wolke
@@ -38,7 +39,7 @@ function init(): void {
     crc2.fill();
     //3.Wolke
     crc2.beginPath();
-    crc2.arc(130, 70, 20, 0, 2 * Math.PI);
+    crc2.arc(120, 70, 20, 0, 2 * Math.PI);
     crc2.fillStyle = "#F2F2F2";
     crc2.fill();
     
@@ -112,6 +113,7 @@ function init(): void {
     crc2.fill();
     crc2.closePath();
     crc2.stroke();
+    
     crc2.beginPath();
     crc2.moveTo(140, 600);
     crc2.lineTo(200, 280);
@@ -120,6 +122,7 @@ function init(): void {
     crc2.fill();
     crc2.closePath();
     crc2.stroke();
+    
     crc2.beginPath();
     crc2.moveTo(250, 600);
     crc2.lineTo(330, 350);
@@ -128,6 +131,7 @@ function init(): void {
     crc2.fill();
     crc2.closePath();
     crc2.stroke();
+    
     crc2.beginPath();
     crc2.moveTo(700, 600);
     crc2.lineTo(740, 500);

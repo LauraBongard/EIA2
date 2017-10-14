@@ -48,7 +48,7 @@ function init(): void {
     
     //1.Berg
     crc2.beginPath();
-    crc2.moveTo(0, 450);
+    crc2.moveTo(0, 600);
     crc2.lineTo(150, 50);
     crc2.lineTo(250, 600);
     crc2.fillStyle = "#BDBDBD";
@@ -56,9 +56,9 @@ function init(): void {
     crc2.stroke();
     //2.Berg
     crc2.beginPath();
-    crc2.moveTo(100, 500);
-    crc2.lineTo(600, 70);
-    crc2.lineTo(750, 500);
+    crc2.moveTo(200, 600);
+    crc2.lineTo(500, 100);
+    crc2.lineTo(750, 600);
     crc2.fillStyle = "#D8D8D8";
     crc2.fill();
     crc2.closePath();

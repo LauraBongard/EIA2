@@ -25,26 +25,22 @@ function init(): void {
     crc2.arc(70, 70, 40, 0, 2 * Math.PI);
     crc2.fillStyle = "#F4FA58";
     crc2.fill();
-    crc2.stroke();
-    
+        
     //1.Wolke
     crc2.beginPath();
     crc2.arc(70, 70, 20, 0, 2 * Math.PI);
     crc2.fillStyle = "#F2F2F2";
     crc2.fill();
-    //crc2.stroke();
     //2.Wolke
     crc2.beginPath();
-    crc2.arc(80, 70, 10, 0, 2 * Math.PI);
+    crc2.arc(100, 90, 20, 0, 2 * Math.PI);
     crc2.fillStyle = "#F2F2F2";
     crc2.fill();
-    //crc2.stroke();
     //3.Wolke
     crc2.beginPath();
-    crc2.arc(90, 70, 20, 0, 2 * Math.PI);
+    crc2.arc(140, 120, 20, 0, 2 * Math.PI);
     crc2.fillStyle = "#F2F2F2";
     crc2.fill();
-    //crc2.stroke();
     
     //1.Berg
     crc2.beginPath();

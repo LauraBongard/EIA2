@@ -22,7 +22,7 @@ function init(): void {
     
     //Sonne
     crc2.beginPath();
-    crc2.arc(50, 50, 70, 0, 2 * Math.PI);
+    crc2.arc(70, 70, 40, 0, 2 * Math.PI);
     crc2.fillStyle = "#F4FA58";
     crc2.fill();
     crc2.stroke();

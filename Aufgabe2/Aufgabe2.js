@@ -92,7 +92,7 @@ var Aufgabe2;
         //Gondel
         crc2.fillStyle = "#151515";
         crc2.fillRect(665, 470, 25, 10);
-        /*B�ume ohne Funktion
+        /*Gro�e B�ume ohne Funktion
         crc2.beginPath();
         crc2.moveTo(20, 600);
         crc2.lineTo(120, 400);
@@ -119,27 +119,27 @@ var Aufgabe2;
         crc2.fill();
         crc2.closePath();
         crc2.stroke(); */
-        // festgelegte Baeume    
+        // feststehende Baeume    
         drawTrees(120, 530, "#0B3B24");
         drawTrees(240, 510, "#0B6138");
         drawTrees(750, 540, "#0B3B24");
-        /*generierte Baeume
-            for (let i: number = 0; i < 10; i++) {
-                let x: number = 150 + Math.random() * 200;
-                let y: number = 300 + Math.random() * 100;
-                drawTrees(x, y, "#0B6138");
-            }*/
-        //Funktion hellere B�ume zuf�llig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal)
+        //Funktion hellere B�ume zuf�llig platzieren (zwischen 200 u 500 horizontal und 400 u 600 vertikal)
         for (let i = 0; i < 5; i++) {
             let x = 200 + Math.random() * 600;
             let y = 400 + Math.random() * 100;
             drawTrees(x, y, "#0B6138");
         }
-        //Funktion dunklere B�ume zuf�llig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal)
+        //Funktion dunklere B�ume zuf�llig platzieren (zwischen 230 u 500 horizontal und 400 u 600 vertikal)
         for (let i = 0; i < 3; i++) {
             let x = 230 + Math.random() * 600;
             let y = 400 + Math.random() * 100;
             drawTrees(x, y, "#0B3B24");
+        }
+        //Funktion Schneeflocken zuf�llig platzieren (zwischen 230 u 500 horizontal und 400 u 600 vertikal)
+        for (let i = 0; i < 50; i++) {
+            let x = Math.random() * 800;
+            let y = Math.random() * 600;
+            drawSnowflakes(x, y);
         }
     }
     function drawTrees(x, y, color) {
@@ -158,6 +158,12 @@ var Aufgabe2;
         crc2.lineTo(x - 25, y + 60);
         crc2.closePath();
         crc2.fillStyle = color;
+        crc2.fill();
+    }
+    function drawSnowflakes(x, y) {
+        crc2.fillStyle = "#FFFFFF";
+        crc2.beginPath();
+        crc2.arc(x, y, 10, 0, 2 * Math.PI);
         crc2.fill();
     }
 })(Aufgabe2 || (Aufgabe2 = {}));

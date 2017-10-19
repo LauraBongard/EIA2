@@ -128,7 +128,7 @@ var Aufgabe2;
     }
     function drawTrees(x, y, color) {
         crc2.fillStyle = "#61380B";
-        crc2.fillRect(x - 5, y + 60, 10, 20);
+        crc2.fillRect(x - 5, y + 60, 15, 20);
         crc2.beginPath();
         crc2.moveTo(x, y);
         crc2.lineTo(x + 25, y + 40);

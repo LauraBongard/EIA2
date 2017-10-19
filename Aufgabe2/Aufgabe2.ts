@@ -142,9 +142,9 @@ function init(): void {
         drawTrees(x, y, "#0B6138");
     }
     
-    //Funktion dunklere Bäume zufällig platzieren (zwischen 230 u 500 horizontal und 400 u 600 vertikal)
+    //Funktion dunklere Bäume zufällig platzieren (zwischen 260 u 500 horizontal und 400 u 600 vertikal)
     for (let i: number = 0; i < 8; i++) {
-        let x: number = 230 + Math.random() * 600;
+        let x: number = 260 + Math.random() * 600;
         let y: number = 400 + Math.random() * 100;
         drawTrees(x, y, "#0B3B24");
     }

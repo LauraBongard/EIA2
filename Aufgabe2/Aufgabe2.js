@@ -163,7 +163,7 @@ var Aufgabe2;
     function drawSnowflakes(x, y) {
         crc2.fillStyle = "#FFFFFF";
         crc2.beginPath();
-        crc2.arc(x, y, 5, 0, 2 * Math.PI);
+        crc2.arc(x, y, 5, 0, 6 * Math.PI);
         crc2.fill();
     }
 })(Aufgabe2 || (Aufgabe2 = {}));

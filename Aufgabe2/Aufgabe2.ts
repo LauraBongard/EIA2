@@ -51,7 +51,6 @@ function init(): void {
     crc2.fillStyle = "#BDBDBD";
     crc2.fill();
     crc2.closePath();  
-    crc2.stroke();
     //2.Berg
     crc2.beginPath();
     crc2.moveTo(200, 600);
@@ -60,7 +59,6 @@ function init(): void {
     crc2.fillStyle = "#D8D8D8";
     crc2.fill();
     crc2.closePath();
-    crc2.stroke();
     //3.Berg
     crc2.beginPath();
     crc2.moveTo(450, 600);
@@ -69,8 +67,7 @@ function init(): void {
     crc2.fillStyle = "#D8D8D8";
     crc2.fill();
     crc2.closePath();
-    crc2.stroke();
-    
+   
     //Skiberg
     crc2.beginPath();
     crc2.moveTo(800, 150);
@@ -184,7 +181,7 @@ function init(): void {
     function drawSnowflakes (x: number, y: number): void {
         crc2.fillStyle = "#FFFFFF";
         crc2.beginPath();
-        crc2.arc(x, y, 5, 0, 2 * Math.PI);
+        crc2.arc(x, y, 5, 0, 6 * Math.PI);
         crc2.fill();
     
     }

@@ -44,7 +44,6 @@ var Aufgabe2;
         crc2.fillStyle = "#BDBDBD";
         crc2.fill();
         crc2.closePath();
-        crc2.stroke();
         //2.Berg
         crc2.beginPath();
         crc2.moveTo(200, 600);
@@ -53,7 +52,6 @@ var Aufgabe2;
         crc2.fillStyle = "#D8D8D8";
         crc2.fill();
         crc2.closePath();
-        crc2.stroke();
         //3.Berg
         crc2.beginPath();
         crc2.moveTo(450, 600);
@@ -62,7 +60,6 @@ var Aufgabe2;
         crc2.fillStyle = "#D8D8D8";
         crc2.fill();
         crc2.closePath();
-        crc2.stroke();
         //Skiberg
         crc2.beginPath();
         crc2.moveTo(800, 150);

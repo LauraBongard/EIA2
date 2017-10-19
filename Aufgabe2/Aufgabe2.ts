@@ -133,19 +133,30 @@ function init(): void {
     crc2.closePath();
     crc2.stroke(); */
     
-    /*drawTrees(50, 500, "#0B3B24");
-    drawTrees(80, 520, "#0B6138");
-    drawTrees(750, 560, "#0B3B24");*/
+    // festgelegte Baeume    
+    drawTrees(120, 530, "#0B3B24");
+    drawTrees(240, 510, "#0B6138");
+    drawTrees(750, 540, "#0B3B24");
     
-    drawTrees(120, 560, "#0B3B24");
-    drawTrees(240, 550, "#0B6138");
-    drawTrees(750, 555, "#0B3B24");
+    /*generierte Baeume
+        for (let i: number = 0; i < 10; i++) {
+            let x: number = 150 + Math.random() * 200;
+            let y: number = 300 + Math.random() * 100;
+            drawTrees(x, y, "#0B6138");
+        }*/
 
+    //Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal)
+    
+    for (let i: number = 0; i < 5; i++) {
+        let x: number = 100 + Math.random() * 600;
+        let y: number = 400 + Math.random() * 100;
+        drawTrees(x, y, "#0B6138");
+    }
 }
     
      function drawTrees (x: number, y: number, color: string): void {
         crc2.fillStyle = "#61380B";
-        crc2.fillRect(x - 5, y + 60, 10, 20);
+        crc2.fillRect(x - 5, y + 60, 15, 20);
         crc2.beginPath();
         crc2.moveTo(x, y);
         crc2.lineTo(x + 25, y + 40);

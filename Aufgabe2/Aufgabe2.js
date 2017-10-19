@@ -119,9 +119,12 @@ var Aufgabe2;
         crc2.fill();
         crc2.closePath();
         crc2.stroke(); */
-        drawTrees(50, 500, "#0B3B24");
+        /*drawTrees(50, 500, "#0B3B24");
         drawTrees(80, 520, "#0B6138");
-        drawTrees(750, 560, "#0B3B24");
+        drawTrees(750, 560, "#0B3B24");*/
+        drawTrees(120, 460, "#0B3B2");
+        drawTrees(240, 250, "#0B6138");
+        drawTrees(50, 120, "#0B3B2");
     }
     function drawTrees(x, y, color) {
         crc2.fillStyle = "#61380B";

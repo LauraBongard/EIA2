@@ -145,13 +145,20 @@ function init(): void {
             drawTrees(x, y, "#0B6138");
         }*/
 
-    //Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal)
-    
+    //Funktion hellere Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal)
     for (let i: number = 0; i < 5; i++) {
         let x: number = 100 + Math.random() * 600;
         let y: number = 400 + Math.random() * 100;
         drawTrees(x, y, "#0B6138");
     }
+    
+    //Funktion dunklere Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal)
+    for (let i: number = 0; i < 3; i++) {
+        let x: number = 100 + Math.random() * 600;
+        let y: number = 400 + Math.random() * 100;
+        drawTrees(x, y, "#0B3B24");
+    }
+    
 }
     
      function drawTrees (x: number, y: number, color: string): void {

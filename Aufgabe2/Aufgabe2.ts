@@ -137,9 +137,9 @@ function init(): void {
     drawTrees(80, 520, "#0B6138");
     drawTrees(750, 560, "#0B3B24");*/
     
-    drawTrees(120, 460, "#0B3B2");
-    drawTrees(240, 250, "#0B6138");
-    drawTrees(50, 120, "#0B3B2");
+    drawTrees(120, 560, "#0B3B24");
+    drawTrees(240, 550, "#0B6138");
+    drawTrees(750, 555, "#0B3B24");
 
 }
     

@@ -24,17 +24,17 @@ var Aufgabe2;
         //1.Wolke
         crc2.beginPath();
         crc2.arc(80, 70, 20, 0, 2 * Math.PI);
-        crc2.fillStyle = "#F2F2F2";
+        crc2.fillStyle = "#E6E6E6";
         crc2.fill();
         //2.Wolke
         crc2.beginPath();
         crc2.arc(100, 60, 20, 0, 2 * Math.PI);
-        crc2.fillStyle = "#F2F2F2";
+        crc2.fillStyle = "#E6E6E6";
         crc2.fill();
         //3.Wolke
         crc2.beginPath();
         crc2.arc(120, 70, 20, 0, 2 * Math.PI);
-        crc2.fillStyle = "#F2F2F2";
+        crc2.fillStyle = "#E6E6E6";
         crc2.fill();
         //1.Berg
         crc2.beginPath();
@@ -135,8 +135,8 @@ var Aufgabe2;
             let y = 400 + Math.random() * 100;
             drawTrees(x, y, "#0B3B24");
         }
-        //Funktion Schneeflocken zuf�llig platzieren (zwischen 230 u 500 horizontal und 400 u 600 vertikal)
-        for (let i = 0; i < 50; i++) {
+        //Funktion Schneeflocken zuf�llig platzieren auf dem ganzen Canvas
+        for (let i = 0; i < 200; i++) {
             let x = Math.random() * 800;
             let y = Math.random() * 600;
             drawSnowflakes(x, y);
@@ -163,7 +163,7 @@ var Aufgabe2;
     function drawSnowflakes(x, y) {
         crc2.fillStyle = "#FFFFFF";
         crc2.beginPath();
-        crc2.arc(x, y, 10, 0, 2 * Math.PI);
+        crc2.arc(x, y, 5, 0, 2 * Math.PI);
         crc2.fill();
     }
 })(Aufgabe2 || (Aufgabe2 = {}));

@@ -127,7 +127,7 @@ var Aufgabe2;
             drawTrees(x, y, "#0B6138");
         }
         //Funktion dunklere B�ume zuf�llig platzieren (zwischen 230 u 500 horizontal und 400 u 600 vertikal)
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 8; i++) {
             let x = 230 + Math.random() * 600;
             let y = 400 + Math.random() * 100;
             drawTrees(x, y, "#0B3B24");

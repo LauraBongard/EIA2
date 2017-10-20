@@ -112,7 +112,7 @@ var Aufgabe2;
         crc2.moveTo(700, 600);
         crc2.lineTo(740, 500);
         crc2.lineTo(780, 600);
-        crc2.fillStyle = "#0A2A1B";
+        crc2.fillStyle = "#0A";
         crc2.fill();
         crc2.closePath();
         crc2.stroke(); */

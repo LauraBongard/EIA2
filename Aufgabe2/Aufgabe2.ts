@@ -151,7 +151,7 @@ namespace Aufgabe2 {
             drawTrees(x, y, "#0B3B24");
         }
 
-        //Funktion Schneeflocken zufällig platzieren auf dem ganzen Canvas
+        //Schneeflocken zufällig platzieren auf dem ganzen Canvas
         for (let i: number = 0; i < 200; i++) {
             let x: number = Math.random() * 800;
             let y: number = Math.random() * 600;
@@ -160,7 +160,8 @@ namespace Aufgabe2 {
 
 
     }
-
+    
+    //Funktion zum Baeume zeichnen
     function drawTrees(x: number, y: number, color: string): void {
         crc2.fillStyle = "#61380B";
         crc2.fillRect(x - 5, y + 60, 15, 20);
@@ -180,6 +181,7 @@ namespace Aufgabe2 {
         crc2.fill();
     }
 
+    //Funktion zum Schneeflocken zeichnen
     function drawSnowflakes(x: number, y: number): void {
         crc2.fillStyle = "#FFFFFF";
         crc2.beginPath();

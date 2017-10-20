@@ -133,13 +133,14 @@ var Aufgabe2;
             let y = 400 + Math.random() * 100;
             drawTrees(x, y, "#0B3B24");
         }
-        //Funktion Schneeflocken zuf�llig platzieren auf dem ganzen Canvas
+        //Schneeflocken zuf�llig platzieren auf dem ganzen Canvas
         for (let i = 0; i < 200; i++) {
             let x = Math.random() * 800;
             let y = Math.random() * 600;
             drawSnowflakes(x, y);
         }
     }
+    //Funktion zum Baeume zeichnen
     function drawTrees(x, y, color) {
         crc2.fillStyle = "#61380B";
         crc2.fillRect(x - 5, y + 60, 15, 20);
@@ -158,6 +159,7 @@ var Aufgabe2;
         crc2.fillStyle = color;
         crc2.fill();
     }
+    //Funktion zum Schneeflocken zeichnen
     function drawSnowflakes(x, y) {
         crc2.fillStyle = "#FFFFFF";
         crc2.beginPath();

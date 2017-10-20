@@ -130,19 +130,21 @@ function init(): void {
     crc2.closePath();
     crc2.stroke(); */
     
+    // AUFGABE2:
+    
     // feststehende Baeume    
     drawTrees(120, 530, "#0B3B24");
     drawTrees(240, 510, "#0B6138");
     drawTrees(750, 540, "#0B3B24");
     
-    //Funktion hellere Bäume zufällig platzieren (zwischen 200 u 500 horizontal und 400 u 600 vertikal)
+    //Hellere Bäume zufällig platzieren
     for (let i: number = 0; i < 5; i++) {
-        let x: number = 200 + Math.random() * 600;
+        let x: number = 260 + Math.random() * 600;
         let y: number = 400 + Math.random() * 100;
         drawTrees(x, y, "#0B6138");
     }
     
-    //Funktion dunklere Bäume zufällig platzieren (zwischen 260 u 500 horizontal und 400 u 600 vertikal)
+    //Dunklere Bäume zufällig platzieren
     for (let i: number = 0; i < 8; i++) {
         let x: number = 260 + Math.random() * 600;
         let y: number = 400 + Math.random() * 100;

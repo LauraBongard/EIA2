@@ -116,17 +116,18 @@ var Aufgabe2;
         crc2.fill();
         crc2.closePath();
         crc2.stroke(); */
+        // AUFGABE2:
         // feststehende Baeume    
         drawTrees(120, 530, "#0B3B24");
         drawTrees(240, 510, "#0B6138");
         drawTrees(750, 540, "#0B3B24");
-        //Funktion hellere B�ume zuf�llig platzieren (zwischen 200 u 500 horizontal und 400 u 600 vertikal)
+        //Hellere B�ume zuf�llig platzieren
         for (let i = 0; i < 5; i++) {
-            let x = 200 + Math.random() * 600;
+            let x = 260 + Math.random() * 600;
             let y = 400 + Math.random() * 100;
             drawTrees(x, y, "#0B6138");
         }
-        //Funktion dunklere B�ume zuf�llig platzieren (zwischen 260 u 500 horizontal und 400 u 600 vertikal)
+        //Dunklere B�ume zuf�llig platzieren
         for (let i = 0; i < 8; i++) {
             let x = 260 + Math.random() * 600;
             let y = 400 + Math.random() * 100;

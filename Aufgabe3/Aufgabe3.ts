@@ -222,8 +222,8 @@ namespace L03 {
         console.log("Timeout");
         crc2.clearRect(0, 0, 400, 300); // hier Hintergrund restaurieren
         for (let i: number = 0; i < arrayX.length; i++) {
-            arrayX[i] += Math.random() * 4 - 2; // hier experimentieren um
-            arrayY[i] += Math.random() * 4 - 2; // andere Bewegungsmuster zu finden
+            arrayX[i] += 10; //Math.random() * 4 - 2;  hier experimentieren um
+            arrayY[i] += 10; //Math.random() * 4 - 2;  andere Bewegungsmuster zu finden
             crc2.fillStyle = "#ff0000";
             crc2.fillRect(arrayX[i], arrayY[i], 20, 20);
         }

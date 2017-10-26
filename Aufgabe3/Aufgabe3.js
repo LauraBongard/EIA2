@@ -194,6 +194,7 @@ var L03;
     let crc2;
     let arrayX = [];
     let arrayY = [];
+    let i;
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -202,19 +203,29 @@ var L03;
         console.log("setTimeout");
         animate();
         for (let i = 0; i < 100; i++) {
-            arrayX[i] = 200;
-            arrayY[i] = 150;
+            arrayX[i] = 800;
+            arrayY[i] = 250;
         }
         // hier Hintergrund speichern
     }
     function animate() {
         console.log("Timeout");
         crc2.clearRect(0, 0, 400, 300); // hier Hintergrund restaurieren
-        for (let i = 0; i < arrayX.length; i++) {
+        for (i = 0; i < arrayX.length; i++) {
             arrayX[i] += 10; //Math.random() * 4 - 2;  hier experimentieren um
             arrayY[i] += 10; //Math.random() * 4 - 2;  andere Bewegungsmuster zu finden
             crc2.fillStyle = "#ff0000";
             crc2.fillRect(arrayX[i], arrayY[i], 20, 20);
+        }
+        function drawSkier() {
+            crc2.fillStyle = "#0000FF";
+            crc2.fillRect(arrayX[i], arrayY[i], 50, 10);
+            crc2.fillRect(arrayX[i], arrayY[i] - 10, 50, 10);
+            crc2.beginPath();
+            crc2.moveTo(arrayX[i], arrayY[i] + 10);
+            crc2.lineTo(arrayX[i] + 25, arrayY[i] + 60);
+            crc2.closePath();
+            crc2.stroke();
         }
         window.setTimeout(animate, 20); // alle 20 ms wird animate aufgerufen
     }

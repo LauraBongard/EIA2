@@ -1,17 +1,23 @@
 /*
-Aufgabe: 2, Skipiste mit Funktionen
+Aufgabe: 3, Schneegest�ber
 Name: Laura Bongard
 Matrikel: 256028
-Datum: 20.10.17
+Datum: 27.10.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var L03;
-(function (L03) {
+var Aufgabe3;
+(function (Aufgabe3) {
     window.addEventListener("load", init);
     let crc2;
-    let arrayX = [];
-    let arrayY = [];
+    let fahrerX = [];
+    let fahrerY = [];
+    let cloudX = [];
+    let cloudY = [];
+    let snowX = [];
+    let snowY = [];
+    let gondelX = [];
+    let gondelY = [];
     let i;
     let image;
     function init() {
@@ -26,21 +32,6 @@ var L03;
         crc2.beginPath();
         crc2.arc(50, 50, 40, 0, 2 * Math.PI);
         crc2.fillStyle = "#F4FA58";
-        crc2.fill();
-        //1.Wolke
-        crc2.beginPath();
-        crc2.arc(80, 70, 20, 0, 2 * Math.PI);
-        crc2.fillStyle = "#E6E6E6";
-        crc2.fill();
-        //2.Wolke
-        crc2.beginPath();
-        crc2.arc(100, 60, 20, 0, 2 * Math.PI);
-        crc2.fillStyle = "#E6E6E6";
-        crc2.fill();
-        //3.Wolke
-        crc2.beginPath();
-        crc2.arc(120, 70, 20, 0, 2 * Math.PI);
-        crc2.fillStyle = "#E6E6E6";
         crc2.fill();
         //1.Berg
         crc2.beginPath();
@@ -81,7 +72,120 @@ var L03;
         crc2.lineTo(800, 350);
         crc2.stroke();
         crc2.closePath();
-        //Linien f�r Gondel
+        // feststehende Baeume    
+        drawTrees(120, 530, "#0B3B24");
+        drawTrees(240, 510, "#0B6138");
+        drawTrees(750, 540, "#0B3B24");
+        //Hellere B�ume zuf�llig platzieren
+        for (let i = 0; i < 5; i++) {
+            let x = 260 + Math.random() * 600;
+            let y = 400 + Math.random() * 100;
+            drawTrees(x, y, "#0B6138");
+        }
+        //Dunklere B�ume zuf�llig platzieren
+        for (let i = 0; i < 8; i++) {
+            let x = 260 + Math.random() * 600;
+            let y = 400 + Math.random() * 100;
+            drawTrees(x, y, "#0B3B24");
+        }
+        for (let i = 0; i < 100; i++) {
+            fahrerX[i] = 700;
+            fahrerY[i] = 250;
+        }
+        for (let i = 0; i < 140; i++) {
+            snowX[i] = 0 + Math.random() * 800;
+            snowY[i] = 0 + Math.random() * 600;
+        }
+        for (let i = 0; i < 3; i++) {
+            cloudX[i] = 0 + Math.random() * 800;
+            cloudY[i] = 0 + Math.random() * 100 + 20;
+        }
+        for (let i = 0; i < 1; i++) {
+            gondelX[i] = 500;
+            gondelY[i] = 600;
+        }
+        image = crc2.getImageData(0, 0, 800, 600);
+        console.log("setTimeout");
+        animate();
+        // hier Hintergrund speichern
+    }
+    function animate() {
+        //console.log(image);
+        crc2.clearRect(0, 0, 800, 600); //hier Hintergrund restaurieren
+        crc2.putImageData(image, 0, 0);
+        for (i = 0; i < fahrerX.length; i++) {
+            fahrerX[i] -= 3; //Math.random() * 4 - 2;  hier experimentieren um
+            fahrerY[i] += 2; //Math.random() * 4 - 2;  andere Bewegungsmuster zu finden
+            drawSkier(fahrerX[i], fahrerY[i]);
+            if (fahrerY[i] > 600) {
+                fahrerY[i] = 230;
+                fahrerX[i] = 800;
+            }
+        }
+        //Snowflakes
+        for (let i = 0; i < snowX.length; i++) {
+            if (snowY[i] > 600) {
+                snowY[i] = 0;
+            }
+            snowY[i] += Math.random(); // andere Bewegungsmuster zu finden
+            drawSnowflake(snowX[i], snowY[i]);
+        }
+        //Wolke
+        for (let i = 0; i < cloudX.length; i++) {
+            if (cloudX[i] > 800) {
+                cloudX[i] = 0;
+            }
+            cloudX[i] += Math.random(); //Math.random(); andere Bewegungsmuster zu finden
+            drawCloud(cloudX[i], cloudY[i]);
+        }
+        for (let i = 0; i < gondelX.length; i++) {
+            drawGondel(gondelX[i], gondelY[i]);
+            if (gondelX[i] <= 900) {
+                gondelX[i] = 500;
+                gondelY[i] = 600;
+            }
+            gondelY[i] -= 5;
+            gondelX[i] += 5;
+        }
+        window.setTimeout(animate, 20); // alle 20 ms wird animate aufgerufen
+    }
+    //Skifahrer zeichnen
+    function drawSkier(_x, _y) {
+        crc2.fillStyle = "#9A2EFE";
+        crc2.fillRect(_x, _y, 10, -20);
+        crc2.fillStyle = "#F5DA81";
+        crc2.beginPath();
+        crc2.arc(_x + 3, _y - 20, 7, 0, 2 * Math.PI);
+        crc2.fill();
+        crc2.stroke();
+        crc2.fillStyle = "#00BFFF";
+        crc2.beginPath();
+        crc2.moveTo(_x + 20, _y - 4);
+        crc2.lineTo(_x - 20, _y + 4);
+        crc2.stroke();
+    }
+    //Schneeflocken
+    function drawSnowflake(_x, _y) {
+        crc2.fillStyle = "#ffffff";
+        crc2.beginPath();
+        crc2.arc(_x, _y, 3, 0, 2 * Math.PI);
+        crc2.fill();
+    }
+    //Wolken
+    function drawCloud(_x, _y) {
+        crc2.fillStyle = "#FAFAFA";
+        crc2.beginPath();
+        crc2.arc(_x, _y, 20, 0, 2 * Math.PI);
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(_x + 20, _y - 10, 20, 0, 2 * Math.PI);
+        crc2.fill();
+        crc2.beginPath();
+        crc2.arc(_x + 40, _y, 20, 0, 2 * Math.PI);
+        crc2.fill();
+    }
+    //Gondel
+    function drawGondel(_x, _y) {
         crc2.beginPath();
         crc2.moveTo(650, 450);
         crc2.lineTo(700, 450);
@@ -92,64 +196,28 @@ var L03;
         crc2.lineTo(675, 470);
         crc2.stroke();
         crc2.closePath();
-        //Gondel
-        crc2.fillStyle = "#151515";
-        crc2.fillRect(665, 470, 25, 10);
-        //Gro�e B�ume ohne Funktion
-        crc2.beginPath();
-        crc2.moveTo(20, 600);
-        crc2.lineTo(120, 400);
-        crc2.lineTo(220, 600);
-        crc2.fillStyle = "#0B3B24";
-        crc2.fill();
-        crc2.closePath();
+        crc2.fillStyle = "#FA8258";
+        crc2.fillRect(645, 470, 60, 50);
         crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(140, 600);
-        crc2.lineTo(200, 280);
-        crc2.lineTo(260, 600);
-        crc2.fillStyle = "#0B6138";
-        crc2.fill();
-        crc2.closePath();
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(700, 600);
-        crc2.lineTo(740, 500);
-        crc2.lineTo(780, 600);
-        crc2.fillStyle = "#0B6138";
-        crc2.fill();
-        crc2.closePath();
-        crc2.stroke();
-        for (let i = 0; i < 100; i++) {
-            arrayX[i] = 700;
-            arrayY[i] = 250;
-        }
-        image = crc2.getImageData(0, 0, 800, 600);
-        console.log("setTimeout");
-        animate();
-        // hier Hintergrund speichern
     }
-    function animate() {
-        console.log(image);
-        crc2.clearRect(0, 0, 800, 600); //hier Hintergrund restaurieren
-        crc2.putImageData(image, 0, 0);
-        for (i = 0; i < arrayX.length; i++) {
-            arrayX[i] -= 10; //Math.random() * 4 - 2;  hier experimentieren um
-            arrayY[i] += 10; //Math.random() * 4 - 2;  andere Bewegungsmuster zu finden
-            crc2.fillStyle = "#0000FF";
-            crc2.fillRect(arrayX[i], arrayY[i], 20, 20);
-        }
-        function drawSkier() {
-            crc2.fillStyle = "#0000FF";
-            crc2.fillRect(arrayX[i], arrayY[i], 50, 10);
-            crc2.fillRect(arrayX[i], arrayY[i] - 10, 50, 10);
-            crc2.beginPath();
-            crc2.moveTo(arrayX[i], arrayY[i] + 10);
-            crc2.lineTo(arrayX[i] + 25, arrayY[i] + 60);
-            crc2.closePath();
-            crc2.stroke();
-        }
-        window.setTimeout(animate, 100); // alle 100 ms wird animate aufgerufen
+    //Funktion zum Baeume zeichnen
+    function drawTrees(x, y, color) {
+        crc2.fillStyle = "#61380B";
+        crc2.fillRect(x - 5, y + 60, 15, 20);
+        crc2.beginPath();
+        crc2.moveTo(x, y);
+        crc2.lineTo(x + 25, y + 40);
+        crc2.lineTo(x - 25, y + 40);
+        crc2.closePath();
+        crc2.fillStyle = color;
+        crc2.fill();
+        crc2.beginPath();
+        crc2.moveTo(x, y + 10);
+        crc2.lineTo(x + 25, y + 60);
+        crc2.lineTo(x - 25, y + 60);
+        crc2.closePath();
+        crc2.fillStyle = color;
+        crc2.fill();
     }
-})(L03 || (L03 = {}));
+})(Aufgabe3 || (Aufgabe3 = {}));
 //# sourceMappingURL=Aufgabe3.js.map

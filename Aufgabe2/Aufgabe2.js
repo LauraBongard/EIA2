@@ -89,33 +89,6 @@ var Aufgabe2;
         //Gondel
         crc2.fillStyle = "#151515";
         crc2.fillRect(665, 470, 25, 10);
-        /*Gro�e B�ume ohne Funktion
-        crc2.beginPath();
-        crc2.moveTo(20, 600);
-        crc2.lineTo(120, 400);
-        crc2.lineTo(220, 600);
-        crc2.fillStyle = "#0B3B24";
-        crc2.fill();
-        crc2.closePath();
-        crc2.stroke();
-        
-        crc2.beginPath();
-        crc2.moveTo(140, 600);
-        crc2.lineTo(200, 280);
-        crc2.lineTo(260, 600);
-        crc2.fillStyle = "#0B6138";
-        crc2.fill();
-        crc2.closePath();
-        crc2.stroke();
-        
-        crc2.beginPath();
-        crc2.moveTo(700, 600);
-        crc2.lineTo(740, 500);
-        crc2.lineTo(780, 600);
-        crc2.fillStyle = "#0A";
-        crc2.fill();
-        crc2.closePath();
-        crc2.stroke(); */
         // AUFGABE2:
         // feststehende Baeume    
         drawTrees(120, 530, "#0B3B24");

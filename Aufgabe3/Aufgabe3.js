@@ -158,7 +158,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 
 }
-
+ 
 //Funktion zum Baeume zeichnen
 function drawTrees(x: number, y: number, color: string): void {
     crc2.fillStyle = "#61380B";
@@ -203,14 +203,14 @@ var L03;
         console.log("setTimeout");
         animate();
         for (let i = 0; i < 100; i++) {
-            arrayX[i] = 800;
+            arrayX[i] = 700;
             arrayY[i] = 250;
         }
         // hier Hintergrund speichern
     }
     function animate() {
         console.log("Timeout");
-        crc2.clearRect(0, 0, 400, 300); // hier Hintergrund restaurieren
+        crc2.clearRect(0, 0, 800, 600); // hier Hintergrund restaurieren
         for (i = 0; i < arrayX.length; i++) {
             arrayX[i] += 10; //Math.random() * 4 - 2;  hier experimentieren um
             arrayY[i] += 10; //Math.random() * 4 - 2;  andere Bewegungsmuster zu finden

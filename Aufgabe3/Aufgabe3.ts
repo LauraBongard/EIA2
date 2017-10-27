@@ -130,65 +130,65 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         crc2.closePath();
         crc2.stroke(); */
 
-        // AUFGABE2:
+// AUFGABE2:
 
-    /*    // feststehende Baeume    
-        drawTrees(120, 530, "#0B3B24");
-        drawTrees(240, 510, "#0B6138");
-        drawTrees(750, 540, "#0B3B24");
+/*    // feststehende Baeume    
+    drawTrees(120, 530, "#0B3B24");
+    drawTrees(240, 510, "#0B6138");
+    drawTrees(750, 540, "#0B3B24");
 
-        //Hellere Bäume zufällig platzieren
-        for (let i: number = 0; i < 5; i++) {
-            let x: number = 260 + Math.random() * 600;
-            let y: number = 400 + Math.random() * 100;
-            drawTrees(x, y, "#0B6138");
-        }
-
-        //Dunklere Bäume zufällig platzieren
-        for (let i: number = 0; i < 8; i++) {
-            let x: number = 260 + Math.random() * 600;
-            let y: number = 400 + Math.random() * 100;
-            drawTrees(x, y, "#0B3B24");
-        }
-
-        //Schneeflocken zufällig platzieren auf dem ganzen Canvas
-        for (let i: number = 0; i < 200; i++) {
-            let x: number = Math.random() * 800;
-            let y: number = Math.random() * 600;
-            drawSnowflakes(x, y);
-        }
-
-
-    }
-    
-    //Funktion zum Baeume zeichnen
-    function drawTrees(x: number, y: number, color: string): void {
-        crc2.fillStyle = "#61380B";
-        crc2.fillRect(x - 5, y + 60, 15, 20);
-        crc2.beginPath();
-        crc2.moveTo(x, y);
-        crc2.lineTo(x + 25, y + 40);
-        crc2.lineTo(x - 25, y + 40);
-        crc2.closePath();
-        crc2.fillStyle = color;
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(x, y + 10);
-        crc2.lineTo(x + 25, y + 60);
-        crc2.lineTo(x - 25, y + 60);
-        crc2.closePath();
-        crc2.fillStyle = color;
-        crc2.fill();
+    //Hellere Bäume zufällig platzieren
+    for (let i: number = 0; i < 5; i++) {
+        let x: number = 260 + Math.random() * 600;
+        let y: number = 400 + Math.random() * 100;
+        drawTrees(x, y, "#0B6138");
     }
 
-    //Funktion zum Schneeflocken zeichnen
-    function drawSnowflakes(x: number, y: number): void {
-        crc2.fillStyle = "#FFFFFF";
-        crc2.beginPath();
-        crc2.arc(x, y, 5, 0, 6 * Math.PI);
-        crc2.fill();
-
+    //Dunklere Bäume zufällig platzieren
+    for (let i: number = 0; i < 8; i++) {
+        let x: number = 260 + Math.random() * 600;
+        let y: number = 400 + Math.random() * 100;
+        drawTrees(x, y, "#0B3B24");
     }
+
+    //Schneeflocken zufällig platzieren auf dem ganzen Canvas
+    for (let i: number = 0; i < 200; i++) {
+        let x: number = Math.random() * 800;
+        let y: number = Math.random() * 600;
+        drawSnowflakes(x, y);
+    }
+
+
+}
+ 
+//Funktion zum Baeume zeichnen
+function drawTrees(x: number, y: number, color: string): void {
+    crc2.fillStyle = "#61380B";
+    crc2.fillRect(x - 5, y + 60, 15, 20);
+    crc2.beginPath();
+    crc2.moveTo(x, y);
+    crc2.lineTo(x + 25, y + 40);
+    crc2.lineTo(x - 25, y + 40);
+    crc2.closePath();
+    crc2.fillStyle = color;
+    crc2.fill();
+    crc2.beginPath();
+    crc2.moveTo(x, y + 10);
+    crc2.lineTo(x + 25, y + 60);
+    crc2.lineTo(x - 25, y + 60);
+    crc2.closePath();
+    crc2.fillStyle = color;
+    crc2.fill();
+}
+
+//Funktion zum Schneeflocken zeichnen
+function drawSnowflakes(x: number, y: number): void {
+    crc2.fillStyle = "#FFFFFF";
+    crc2.beginPath();
+    crc2.arc(x, y, 5, 0, 6 * Math.PI);
+    crc2.fill();
+
+}
 }*/
 
 
@@ -198,6 +198,7 @@ namespace L03 {
     let crc2: CanvasRenderingContext2D;
     let arrayX: number[] = [];
     let arrayY: number[] = [];
+    let i: number;
 
 
     function init(): void {
@@ -211,22 +212,34 @@ namespace L03 {
         animate();
 
         for (let i: number = 0; i < 100; i++) {
-            arrayX[i] = 200;
-            arrayY[i] = 150;
+            arrayX[i] = 700;
+            arrayY[i] = 250;
         }
-        
+
         // hier Hintergrund speichern
     }
 
     function animate(): void {
         console.log("Timeout");
-        crc2.clearRect(0, 0, 400, 300); // hier Hintergrund restaurieren
-        for (let i: number = 0; i < arrayX.length; i++) {
+        crc2.clearRect(0, 0, 800, 600); // hier Hintergrund restaurieren
+        for (i = 0; i < arrayX.length; i++) {
             arrayX[i] += 10; //Math.random() * 4 - 2;  hier experimentieren um
             arrayY[i] += 10; //Math.random() * 4 - 2;  andere Bewegungsmuster zu finden
             crc2.fillStyle = "#ff0000";
             crc2.fillRect(arrayX[i], arrayY[i], 20, 20);
         }
+
+        function drawSkier(): void {
+            crc2.fillStyle = "#0000FF";
+            crc2.fillRect(arrayX[i], arrayY[i], 50, 10);
+            crc2.fillRect(arrayX[i], arrayY[i] - 10, 50, 10);
+            crc2.beginPath();
+            crc2.moveTo(arrayX[i], arrayY[i] + 10);
+            crc2.lineTo(arrayX[i] + 25, arrayY[i] + 60);
+            crc2.closePath();
+            crc2.stroke();
+        }
+
 
 
         window.setTimeout(animate, 20); // alle 20 ms wird animate aufgerufen

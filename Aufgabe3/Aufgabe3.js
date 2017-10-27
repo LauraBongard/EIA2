@@ -195,6 +195,7 @@ var L03;
     let arrayX = [];
     let arrayY = [];
     let i;
+    var image;
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -206,11 +207,13 @@ var L03;
             arrayX[i] = 700;
             arrayY[i] = 250;
         }
+        image = crc2.getImageData(0, 0, 800, 600);
         // hier Hintergrund speichern
     }
     function animate() {
         console.log("Timeout");
-        crc2.clearRect(0, 0, 800, 600); // hier Hintergrund restaurieren
+        crc2.clearRect(0, 0, 800, 600); //hier Hintergrund restaurieren
+        crc2.putImageData(image, 0, 0);
         for (i = 0; i < arrayX.length; i++) {
             arrayX[i] += 10; //Math.random() * 4 - 2;  hier experimentieren um
             arrayY[i] += 10; //Math.random() * 4 - 2;  andere Bewegungsmuster zu finden

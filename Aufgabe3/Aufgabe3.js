@@ -215,9 +215,9 @@ var L03;
         crc2.clearRect(0, 0, 800, 600); //hier Hintergrund restaurieren
         crc2.putImageData(image, 0, 0);
         for (i = 0; i < arrayX.length; i++) {
-            arrayX[i] += 10; //Math.random() * 4 - 2;  hier experimentieren um
+            arrayX[i] -= 10; //Math.random() * 4 - 2;  hier experimentieren um
             arrayY[i] += 10; //Math.random() * 4 - 2;  andere Bewegungsmuster zu finden
-            crc2.fillStyle = "#ff0000";
+            crc2.fillStyle = "#0000FF";
             crc2.fillRect(arrayX[i], arrayY[i], 20, 20);
         }
         function drawSkier() {
@@ -230,7 +230,7 @@ var L03;
             crc2.closePath();
             crc2.stroke();
         }
-        window.setTimeout(animate, 20); // alle 20 ms wird animate aufgerufen
+        window.setTimeout(animate, 100); // alle 20 ms wird animate aufgerufen
     }
 })(L03 || (L03 = {}));
 //# sourceMappingURL=Aufgabe3.js.map

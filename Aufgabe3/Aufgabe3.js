@@ -25,7 +25,8 @@ var Aufgabe3;
         console.log(canvas);
         crc2 = canvas.getContext("2d");
         console.log(crc2);
-        //Hintergrund: Himmel
+        //Hintergrundbild
+        //Himmel
         crc2.fillStyle = "#A9E2F3";
         crc2.fillRect(0, 0, 800, 600);
         //Sonne
@@ -66,7 +67,7 @@ var Aufgabe3;
         crc2.fillStyle = "#FFFFFF";
         crc2.fill();
         crc2.stroke();
-        //Skilift
+        //Skilift f�r Gondel
         crc2.beginPath();
         crc2.moveTo(500, 600);
         crc2.lineTo(800, 350);
@@ -88,56 +89,61 @@ var Aufgabe3;
             let y = 400 + Math.random() * 100;
             drawTrees(x, y, "#0B3B24");
         }
+        //Schleife f�r Skifahrer
         for (let i = 0; i < 100; i++) {
             fahrerX[i] = 700;
             fahrerY[i] = 250;
         }
+        //Schleife f�r Schneeflocken
         for (let i = 0; i < 140; i++) {
             snowX[i] = 0 + Math.random() * 800;
             snowY[i] = 0 + Math.random() * 600;
         }
+        //Schleife f�r Wolken
         for (let i = 0; i < 3; i++) {
             cloudX[i] = 0 + Math.random() * 800;
             cloudY[i] = 0 + Math.random() * 100 + 20;
         }
+        //Schleife f�r Gondel
         for (let i = 0; i < 1; i++) {
             gondelX[i] = 500;
             gondelY[i] = 600;
         }
+        //Bild als Hintergrund speichern
         image = crc2.getImageData(0, 0, 800, 600);
         console.log("setTimeout");
         animate();
-        // hier Hintergrund speichern
     }
     function animate() {
-        //console.log(image);
-        crc2.clearRect(0, 0, 800, 600); //hier Hintergrund restaurieren
+        crc2.clearRect(0, 0, 800, 600); // Hintergrund restaurieren
         crc2.putImageData(image, 0, 0);
+        //Skifahrer bewegen
         for (i = 0; i < fahrerX.length; i++) {
-            fahrerX[i] -= 3; //Math.random() * 4 - 2;  hier experimentieren um
-            fahrerY[i] += 2; //Math.random() * 4 - 2;  andere Bewegungsmuster zu finden
+            fahrerX[i] -= 3;
+            fahrerY[i] += 2;
             drawSkier(fahrerX[i], fahrerY[i]);
             if (fahrerY[i] > 600) {
                 fahrerY[i] = 230;
                 fahrerX[i] = 800;
             }
         }
-        //Snowflakes
+        //Schneeflocken bewegen
         for (let i = 0; i < snowX.length; i++) {
             if (snowY[i] > 600) {
                 snowY[i] = 0;
             }
-            snowY[i] += Math.random(); // andere Bewegungsmuster zu finden
+            snowY[i] += Math.random();
             drawSnowflake(snowX[i], snowY[i]);
         }
-        //Wolke
+        //Wolken bewegen
         for (let i = 0; i < cloudX.length; i++) {
             if (cloudX[i] > 800) {
                 cloudX[i] = 0;
             }
-            cloudX[i] += Math.random(); //Math.random(); andere Bewegungsmuster zu finden
+            cloudX[i] += Math.random();
             drawCloud(cloudX[i], cloudY[i]);
         }
+        //Gondel bewegen
         for (let i = 0; i < gondelX.length; i++) {
             drawGondel(gondelX[i], gondelY[i]);
             if (gondelX[i] <= 900) {
@@ -164,14 +170,14 @@ var Aufgabe3;
         crc2.lineTo(_x - 20, _y + 4);
         crc2.stroke();
     }
-    //Schneeflocken
+    //Schneeflocken zeichnen
     function drawSnowflake(_x, _y) {
         crc2.fillStyle = "#ffffff";
         crc2.beginPath();
         crc2.arc(_x, _y, 3, 0, 2 * Math.PI);
         crc2.fill();
     }
-    //Wolken
+    //Wolken zeichnen
     function drawCloud(_x, _y) {
         crc2.fillStyle = "#FAFAFA";
         crc2.beginPath();
@@ -184,7 +190,7 @@ var Aufgabe3;
         crc2.arc(_x + 40, _y, 20, 0, 2 * Math.PI);
         crc2.fill();
     }
-    //Gondel
+    //Gondel zeichnen
     function drawGondel(_x, _y) {
         crc2.beginPath();
         crc2.moveTo(650, 450);

@@ -28,7 +28,8 @@ namespace Aufgabe3 {
         crc2 = canvas.getContext("2d");
         console.log(crc2);
 
-        //Hintergrund: Himmel
+        //Hintergrundbild
+        //Himmel
         crc2.fillStyle = "#A9E2F3";
         crc2.fillRect(0, 0, 800, 600);
 
@@ -73,7 +74,7 @@ namespace Aufgabe3 {
         crc2.fill();
         crc2.stroke();
 
-        //Skilift
+        //Skilift für Gondel
         crc2.beginPath();
         crc2.moveTo(500, 600);
         crc2.lineTo(800, 350);
@@ -99,40 +100,47 @@ namespace Aufgabe3 {
             drawTrees(x, y, "#0B3B24");
         }
 
+        //Schleife für Skifahrer
         for (let i: number = 0; i < 100; i++) {
             fahrerX[i] = 700;
             fahrerY[i] = 250;
         }
 
+        //Schleife für Schneeflocken
         for (let i: number = 0; i < 140; i++) {
             snowX[i] = 0 + Math.random() * 800;
             snowY[i] = 0 + Math.random() * 600;
         }
 
+        //Schleife für Wolken
         for (let i: number = 0; i < 3; i++) {
             cloudX[i] = 0 + Math.random() * 800;
             cloudY[i] = 0 + Math.random() * 100 + 20;
         }
 
+        //Schleife für Gondel
         for (let i: number = 0; i < 1; i++) {
             gondelX[i] = 500;
             gondelY[i] = 600;
 
         }
 
+        //Bild als Hintergrund speichern
         image = crc2.getImageData(0, 0, 800, 600);
         console.log("setTimeout");
+
         animate();
-        // hier Hintergrund speichern
+
     }
 
     function animate(): void {
-        //console.log(image);
-        crc2.clearRect(0, 0, 800, 600);  //hier Hintergrund restaurieren
+        crc2.clearRect(0, 0, 800, 600);  // Hintergrund restaurieren
         crc2.putImageData(image, 0, 0);
+
+        //Skifahrer bewegen
         for (i = 0; i < fahrerX.length; i++) {
-            fahrerX[i] -= 3; //Math.random() * 4 - 2;  hier experimentieren um
-            fahrerY[i] += 2; //Math.random() * 4 - 2;  andere Bewegungsmuster zu finden
+            fahrerX[i] -= 3;
+            fahrerY[i] += 2;
             drawSkier(fahrerX[i], fahrerY[i]);
             if (fahrerY[i] > 600) {
                 fahrerY[i] = 230;
@@ -140,24 +148,25 @@ namespace Aufgabe3 {
             }
         }
 
-        //Snowflakes
+        //Schneeflocken bewegen
         for (let i: number = 0; i < snowX.length; i++) {
             if (snowY[i] > 600) {
                 snowY[i] = 0;
             }
-            snowY[i] += Math.random(); // andere Bewegungsmuster zu finden
+            snowY[i] += Math.random();
             drawSnowflake(snowX[i], snowY[i]);
         }
 
-        //Wolke
+        //Wolken bewegen
         for (let i: number = 0; i < cloudX.length; i++) {
             if (cloudX[i] > 800) {
                 cloudX[i] = 0;
             }
-            cloudX[i] += Math.random(); //Math.random(); andere Bewegungsmuster zu finden
+            cloudX[i] += Math.random();
             drawCloud(cloudX[i], cloudY[i]);
         }
 
+        //Gondel bewegen
         for (let i: number = 0; i < gondelX.length; i++) {
             drawGondel(gondelX[i], gondelY[i]);
             if (gondelX[i] <= 900) {
@@ -166,7 +175,7 @@ namespace Aufgabe3 {
             }
             gondelY[i] -= 5;
             gondelX[i] += 5;
-            
+
         }
 
         window.setTimeout(animate, 20); // alle 20 ms wird animate aufgerufen
@@ -190,7 +199,7 @@ namespace Aufgabe3 {
 
     }
 
-    //Schneeflocken
+    //Schneeflocken zeichnen
     function drawSnowflake(_x: number, _y: number): void {
         crc2.fillStyle = "#ffffff";
         crc2.beginPath();
@@ -198,7 +207,7 @@ namespace Aufgabe3 {
         crc2.fill();
     }
 
-    //Wolken
+    //Wolken zeichnen
     function drawCloud(_x: number, _y: number): void {
         crc2.fillStyle = "#FAFAFA";
         crc2.beginPath();
@@ -212,7 +221,7 @@ namespace Aufgabe3 {
         crc2.fill();
     }
 
-    //Gondel
+    //Gondel zeichnen
     function drawGondel(_x: number, _y: number): void {
 
         crc2.beginPath();
@@ -232,7 +241,7 @@ namespace Aufgabe3 {
         crc2.stroke();
 
     }
-    
+
     //Funktion zum Baeume zeichnen
     function drawTrees(x: number, y: number, color: string): void {
         crc2.fillStyle = "#61380B";

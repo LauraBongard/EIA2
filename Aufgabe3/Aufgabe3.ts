@@ -6,17 +6,22 @@ Datum: 20.10.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-/*namespace Aufgabe2 {
-
+namespace L03 {
     window.addEventListener("load", init);
-
     let crc2: CanvasRenderingContext2D;
+    let arrayX: number[] = [];
+    let arrayY: number[] = [];
+    let i: number;
+    let image: ImageData;
+
 
     function init(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
+        console.log(canvas);
 
         crc2 = canvas.getContext("2d");
-
+        console.log(crc2);
+        
         //Hintergrund: Himmel
         crc2.fillStyle = "#A9E2F3";
         crc2.fillRect(0, 0, 800, 600);
@@ -102,7 +107,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         crc2.fillStyle = "#151515";
         crc2.fillRect(665, 470, 25, 10);
 
-        /*Groﬂe B‰ume ohne Funktion
+        //Groﬂe B‰ume ohne Funktion
         crc2.beginPath();
         crc2.moveTo(20, 600);
         crc2.lineTo(120, 400);
@@ -125,104 +130,29 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         crc2.moveTo(700, 600);
         crc2.lineTo(740, 500);
         crc2.lineTo(780, 600);
-        crc2.fillStyle = "#0A";
+        crc2.fillStyle = "#0B6138";
         crc2.fill();
         crc2.closePath();
-        crc2.stroke(); */
-
-// AUFGABE2:
-
-/*    // feststehende Baeume    
-    drawTrees(120, 530, "#0B3B24");
-    drawTrees(240, 510, "#0B6138");
-    drawTrees(750, 540, "#0B3B24");
-
-    //Hellere B‰ume zuf‰llig platzieren
-    for (let i: number = 0; i < 5; i++) {
-        let x: number = 260 + Math.random() * 600;
-        let y: number = 400 + Math.random() * 100;
-        drawTrees(x, y, "#0B6138");
-    }
-
-    //Dunklere B‰ume zuf‰llig platzieren
-    for (let i: number = 0; i < 8; i++) {
-        let x: number = 260 + Math.random() * 600;
-        let y: number = 400 + Math.random() * 100;
-        drawTrees(x, y, "#0B3B24");
-    }
-
-    //Schneeflocken zuf‰llig platzieren auf dem ganzen Canvas
-    for (let i: number = 0; i < 200; i++) {
-        let x: number = Math.random() * 800;
-        let y: number = Math.random() * 600;
-        drawSnowflakes(x, y);
-    }
+        crc2.stroke(); 
 
 
-}
- 
-//Funktion zum Baeume zeichnen
-function drawTrees(x: number, y: number, color: string): void {
-    crc2.fillStyle = "#61380B";
-    crc2.fillRect(x - 5, y + 60, 15, 20);
-    crc2.beginPath();
-    crc2.moveTo(x, y);
-    crc2.lineTo(x + 25, y + 40);
-    crc2.lineTo(x - 25, y + 40);
-    crc2.closePath();
-    crc2.fillStyle = color;
-    crc2.fill();
-    crc2.beginPath();
-    crc2.moveTo(x, y + 10);
-    crc2.lineTo(x + 25, y + 60);
-    crc2.lineTo(x - 25, y + 60);
-    crc2.closePath();
-    crc2.fillStyle = color;
-    crc2.fill();
-}
-
-//Funktion zum Schneeflocken zeichnen
-function drawSnowflakes(x: number, y: number): void {
-    crc2.fillStyle = "#FFFFFF";
-    crc2.beginPath();
-    crc2.arc(x, y, 5, 0, 6 * Math.PI);
-    crc2.fill();
-
-}
-}*/
-
-
-
-namespace L03 {
-    window.addEventListener("load", init);
-    let crc2: CanvasRenderingContext2D;
-    let arrayX: number[] = [];
-    let arrayY: number[] = [];
-    let i: number;
-    var image: ImageData;
-
-
-    function init(): void {
-        let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
-        console.log(canvas);
-
-        crc2 = canvas.getContext("2d");
-        console.log(crc2);
-
-        console.log("setTimeout");
-        animate();
+        
 
         for (let i: number = 0; i < 100; i++) {
             arrayX[i] = 700;
             arrayY[i] = 250;
         }
+        
+        
+        
         image = crc2.getImageData(0, 0, 800, 600);
-
+        console.log("setTimeout");
+        animate();
         // hier Hintergrund speichern
     }
 
     function animate(): void {
-        console.log("Timeout");
+        console.log(image);
         crc2.clearRect(0, 0, 800, 600);  //hier Hintergrund restaurieren
         crc2.putImageData(image, 0, 0);
         for (i = 0; i < arrayX.length; i++) {
@@ -231,6 +161,8 @@ namespace L03 {
             crc2.fillStyle = "#0000FF";
             crc2.fillRect(arrayX[i], arrayY[i], 20, 20);
         }
+        
+       
 
         function drawSkier(): void {
             crc2.fillStyle = "#0000FF";
@@ -245,7 +177,7 @@ namespace L03 {
 
 
 
-        window.setTimeout(animate, 100); // alle 20 ms wird animate aufgerufen
+        window.setTimeout(animate, 100); // alle 100 ms wird animate aufgerufen
     }
 
 }

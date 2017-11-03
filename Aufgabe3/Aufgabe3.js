@@ -145,8 +145,8 @@ var Aufgabe3;
         }
         //Gondel bewegen
         for (let i = 0; i < gondelX.length; i++) {
-            gondelX[i] += 5;
-            gondelY[i] -= 4;
+            gondelX[i] += 1;
+            gondelY[i] -= 0.85;
             drawGondel(gondelX[i], gondelY[i]);
             if (gondelX[i] > 900) {
                 gondelX[i] = 470;

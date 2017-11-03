@@ -168,15 +168,15 @@ namespace Aufgabe3 {
 
         //Gondel bewegen
         for (let i: number = 0; i < gondelX.length; i++) {
-            drawGondel(gondelX[i], gondelY[i]);
-            if (gondelX[i] <= 900) {
-                gondelX[i] = 650;
-                gondelY[i] = 450;
-            }
-            gondelY[i] -= 5;
             gondelX[i] += 5;
-
-        }
+            gondelY[i] -= 4;
+            drawGondel(gondelX[i], gondelY[i]);
+            if (gondelX[i] > 900) {
+                gondelX[i] = 470;
+                gondelY[i] = 600;
+            }
+            
+         }
 
         window.setTimeout(animate, 20); // alle 20 ms wird animate aufgerufen
     }
@@ -232,11 +232,11 @@ namespace Aufgabe3 {
 
         crc2.beginPath();
         crc2.moveTo(_x + 25, _y);
-        crc2.lineTo(_x +25, _y + 20);
+        crc2.lineTo(_x + 25, _y + 20);
         crc2.stroke();
         crc2.closePath();
 
-        crc2.fillStyle = "#FA8258";
+        crc2.fillStyle = "#CEECF5";
         crc2.fillRect(_x - 5, _y + 20, 60, 50);
         crc2.stroke();
 

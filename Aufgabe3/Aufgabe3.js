@@ -90,9 +90,9 @@ var Aufgabe3;
             drawTrees(x, y, "#0B3B24");
         }
         //Schleife f�r Skifahrer
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 5; i++) {
             fahrerX[i] = 700;
-            fahrerY[i] = 250;
+            fahrerY[i] = 250 + Math.random() * 100;
         }
         //Schleife f�r Schneeflocken
         for (let i = 0; i < 140; i++) {

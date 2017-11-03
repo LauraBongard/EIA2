@@ -101,9 +101,9 @@ namespace Aufgabe3 {
         }
 
         //Schleife für Skifahrer
-        for (let i: number = 0; i < 100; i++) {
+        for (let i: number = 0; i < 5; i++) {
             fahrerX[i] = 700;
-            fahrerY[i] = 250;
+            fahrerY[i] = 250 + Math.random() * 100;
         }
 
         //Schleife für Schneeflocken

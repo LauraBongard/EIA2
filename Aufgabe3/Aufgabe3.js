@@ -106,8 +106,8 @@ var Aufgabe3;
         }
         //Schleife f�r Gondel
         for (let i = 0; i < 1; i++) {
-            gondelX[i] = 500;
-            gondelY[i] = 600;
+            gondelX[i] = 650;
+            gondelY[i] = 450;
         }
         //Bild als Hintergrund speichern
         image = crc2.getImageData(0, 0, 800, 600);
@@ -147,8 +147,8 @@ var Aufgabe3;
         for (let i = 0; i < gondelX.length; i++) {
             drawGondel(gondelX[i], gondelY[i]);
             if (gondelX[i] <= 900) {
-                gondelX[i] = 500;
-                gondelY[i] = 600;
+                gondelX[i] = 650;
+                gondelY[i] = 450;
             }
             gondelY[i] -= 5;
             gondelX[i] += 5;
@@ -193,17 +193,17 @@ var Aufgabe3;
     //Gondel zeichnen
     function drawGondel(_x, _y) {
         crc2.beginPath();
-        crc2.moveTo(650, 450);
-        crc2.lineTo(700, 450);
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x + 50, _y);
         crc2.stroke();
         crc2.closePath();
         crc2.beginPath();
-        crc2.moveTo(675, 450);
-        crc2.lineTo(675, 470);
+        crc2.moveTo(_x + 25, _y);
+        crc2.lineTo(_x + 25, _y + 20);
         crc2.stroke();
         crc2.closePath();
         crc2.fillStyle = "#FA8258";
-        crc2.fillRect(645, 470, 60, 50);
+        crc2.fillRect(_x - 5, _y + 20, 60, 50);
         crc2.stroke();
     }
     //Funktion zum Baeume zeichnen

@@ -141,11 +141,12 @@ namespace Aufgabe3 {
         for (i = 0; i < fahrerX.length; i++) {
             fahrerX[i] -= 3;
             fahrerY[i] += 2;
-            drawSkier(fahrerX[i], fahrerY[i]);
+            drawSkier(fahrerX[i], fahrerY[i], "#F781F3");
             if (fahrerY[i] > 600) {
                 fahrerY[i] = 230;
                 fahrerX[i] = 800;
             }
+
         }
 
         //Schneeflocken bewegen
@@ -175,16 +176,16 @@ namespace Aufgabe3 {
                 gondelX[i] = 470;
                 gondelY[i] = 600;
             }
-            
-         }
+
+        }
 
         window.setTimeout(animate, 20); // alle 20 ms wird animate aufgerufen
     }
 
     //Skifahrer zeichnen
-    function drawSkier(_x: number, _y: number): void {
+    function drawSkier(_x: number, _y: number, _color: string): void {
 
-        crc2.fillStyle = "#9A2EFE";
+        crc2.fillStyle = _color;
         crc2.fillRect(_x, _y, 10, - 20);
         crc2.fillStyle = "#F5DA81";
         crc2.beginPath();

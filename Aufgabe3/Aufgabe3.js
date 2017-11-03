@@ -2,7 +2,7 @@
 Aufgabe: 3, Schneegest�ber
 Name: Laura Bongard
 Matrikel: 256028
-Datum: 27.10.17
+Datum: 03.11.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */

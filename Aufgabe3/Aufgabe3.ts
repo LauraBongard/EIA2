@@ -245,7 +245,7 @@ namespace Aufgabe3 {
 
     //Funktion zum Baeume zeichnen
     function drawTrees(x: number, y: number, color: string): void {
-        crc2.fillStyle = "#61380B";
+        crc2.fillStyle = "#3B170B";
         crc2.fillRect(x - 5, y + 60, 15, 20);
         crc2.beginPath();
         crc2.moveTo(x, y);

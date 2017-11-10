@@ -91,10 +91,10 @@ var Aufgabe4;
             drawTrees(x, y, "#0B3B24");
         }
         //Schleife f�r Skifahrer
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 5; i++) {
             //Zugriff auf Interface
             fahrer[i] = {
-                x: 700,
+                x: 800,
                 y: 250,
                 dx: Math.random() * 3 - 10,
                 dy: Math.random() * 3 + 5,
@@ -165,7 +165,7 @@ var Aufgabe4;
         //X-/Y-Werte werden um dx/dy erweitert
         _fahrer.x += _fahrer.dx;
         _fahrer.y += _fahrer.dy;
-        //Ski
+        //Ski zeichnen
         crc2.beginPath();
         crc2.moveTo(_fahrer.x, _fahrer.y + 6);
         crc2.lineTo(_fahrer.x - 20, _fahrer.y + 15);
@@ -176,10 +176,10 @@ var Aufgabe4;
         crc2.lineTo(_fahrer.x - 15, _fahrer.y + 20);
         crc2.strokeStyle = "#400000";
         crc2.stroke();
-        //K�rper   
+        //K�rper zeichnen
         crc2.fillStyle = _fahrer.color;
         crc2.fillRect(_fahrer.x, _fahrer.y - 10, 10, 15);
-        //Kopf
+        //Kopf zeichnen
         crc2.beginPath();
         crc2.arc(_fahrer.x + 5, _fahrer.y - 15, 7, 0, 2 * Math.PI);
         crc2.fillStyle = "#ff9f9f";
@@ -207,6 +207,7 @@ var Aufgabe4;
     }
     //Gondel zeichnen
     function drawGondel(_x, _y) {
+        //Linien f�r Ger�st der Gondel zeichnen
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.lineTo(_x + 50, _y);
@@ -217,14 +218,17 @@ var Aufgabe4;
         crc2.lineTo(_x + 25, _y + 20);
         crc2.stroke();
         crc2.closePath();
+        //Personenraum der Gondel zeichnen
         crc2.fillStyle = "#CEECF5";
         crc2.fillRect(_x - 5, _y + 20, 60, 50);
         crc2.stroke();
     }
     //Funktion zum Baeume zeichnen
     function drawTrees(x, y, color) {
+        //Stamm zeichnen
         crc2.fillStyle = "#3B170B";
         crc2.fillRect(x - 5, y + 60, 15, 20);
+        //Nadeln zeichnen
         crc2.beginPath();
         crc2.moveTo(x, y);
         crc2.lineTo(x + 25, y + 40);

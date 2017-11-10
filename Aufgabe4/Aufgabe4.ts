@@ -14,13 +14,13 @@ namespace Aufgabe4 {
         dx: number;
         dy: number;
         color: string;
-        }
-    
+    }
+
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
-    
+
     let fahrer: SkierInfo[] = []; //Interfacezugriff
-    
+
     let fahrerX: number[] = [];
     let fahrerY: number[] = [];
     let cloudX: number[] = [];
@@ -113,17 +113,17 @@ namespace Aufgabe4 {
         }
 
         //Schleife für Skifahrer
-        for (let i: number = 0; i < 3; i++) {
+        for (let i: number = 0; i < 5; i++) {
             //Zugriff auf Interface
             fahrer[i] = {
-                    x: 700,
-                    y: 250,
-                    dx:  Math.random() * 3 - 10,
-                    dy: Math.random() * 3 + 5,
-                    color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
-                }
-            }
-        
+                x: 800,
+                y: 250,
+                dx: Math.random() * 3 - 10,
+                dy: Math.random() * 3 + 5,
+                color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
+            };
+        }
+
         //Schleife für Schneeflocken
         for (let i: number = 0; i < 140; i++) {
             snowX[i] = 0 + Math.random() * 800;
@@ -163,7 +163,7 @@ namespace Aufgabe4 {
                 fahrer[i].y = 230;
             }
         }
-        
+
         //Schneeflocken bewegen
         for (let i: number = 0; i < snowX.length; i++) {
             if (snowY[i] > 600) {
@@ -198,36 +198,37 @@ namespace Aufgabe4 {
     }
 
     //Skifahrer zeichnen und bewegen
-        function drawAndMoveSkier(_fahrer: SkierInfo): void {
-            //X-/Y-Werte werden um dx/dy erweitert
-            _fahrer.x += _fahrer.dx;
-            _fahrer.y += _fahrer.dy;
-            
-            //Ski
-            crc2.beginPath();
-            crc2.moveTo(_fahrer.x, _fahrer.y + 6);
-            crc2.lineTo(_fahrer.x - 20, _fahrer.y + 15);
-            crc2.strokeStyle = "#400000";
-            crc2.stroke();
+    function drawAndMoveSkier(_fahrer: SkierInfo): void {
 
-            crc2.beginPath();
-            crc2.moveTo(_fahrer.x, _fahrer.y + 6);
-            crc2.lineTo(_fahrer.x - 15, _fahrer.y + 20);
-            crc2.strokeStyle = "#400000";
-            crc2.stroke();
+        //X-/Y-Werte werden um dx/dy erweitert
+        _fahrer.x += _fahrer.dx;
+        _fahrer.y += _fahrer.dy;
 
-            //Körper   
-            crc2.fillStyle = _fahrer.color;
-            crc2.fillRect(_fahrer.x, _fahrer.y - 10, 10, 15);
+        //Ski zeichnen
+        crc2.beginPath();
+        crc2.moveTo(_fahrer.x, _fahrer.y + 6);
+        crc2.lineTo(_fahrer.x - 20, _fahrer.y + 15);
+        crc2.strokeStyle = "#400000";
+        crc2.stroke();
 
-            //Kopf
-            crc2.beginPath();
-            crc2.arc(_fahrer.x + 5, _fahrer.y - 15, 7, 0, 2 * Math.PI);
-            crc2.fillStyle = "#ff9f9f";
-            crc2.fill();            
-        }
-    
-   
+        crc2.beginPath();
+        crc2.moveTo(_fahrer.x, _fahrer.y + 6);
+        crc2.lineTo(_fahrer.x - 15, _fahrer.y + 20);
+        crc2.strokeStyle = "#400000";
+        crc2.stroke();
+
+        //Körper zeichnen
+        crc2.fillStyle = _fahrer.color;
+        crc2.fillRect(_fahrer.x, _fahrer.y - 10, 10, 15);
+
+        //Kopf zeichnen
+        crc2.beginPath();
+        crc2.arc(_fahrer.x + 5, _fahrer.y - 15, 7, 0, 2 * Math.PI);
+        crc2.fillStyle = "#ff9f9f";
+        crc2.fill();
+    }
+
+
     //Schneeflocken zeichnen
     function drawSnowflake(_x: number, _y: number): void {
         crc2.fillStyle = "#ffffff";
@@ -253,6 +254,7 @@ namespace Aufgabe4 {
     //Gondel zeichnen
     function drawGondel(_x: number, _y: number): void {
 
+        //Linien für Gerüst der Gondel zeichnen
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.lineTo(_x + 50, _y);
@@ -265,6 +267,7 @@ namespace Aufgabe4 {
         crc2.stroke();
         crc2.closePath();
 
+        //Personenraum der Gondel zeichnen
         crc2.fillStyle = "#CEECF5";
         crc2.fillRect(_x - 5, _y + 20, 60, 50);
         crc2.stroke();
@@ -273,8 +276,10 @@ namespace Aufgabe4 {
 
     //Funktion zum Baeume zeichnen
     function drawTrees(x: number, y: number, color: string): void {
+        //Stamm zeichnen
         crc2.fillStyle = "#3B170B";
         crc2.fillRect(x - 5, y + 60, 15, 20);
+        //Nadeln zeichnen
         crc2.beginPath();
         crc2.moveTo(x, y);
         crc2.lineTo(x + 25, y + 40);

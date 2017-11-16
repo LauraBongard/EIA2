@@ -21,8 +21,8 @@ namespace Aufgabe4 {
 
     let fahrer: SkierInfo[] = []; //Interfacezugriff
 
-    let fahrerX: number[] = [];
-    let fahrerY: number[] = [];
+    //let fahrerX: number[] = [];
+    //let fahrerY: number[] = [];
     let cloudX: number[] = [];
     let cloudY: number[] = [];
     let snowX: number[] = [];
@@ -93,11 +93,7 @@ namespace Aufgabe4 {
         crc2.stroke();
         crc2.closePath();
 
-        // feststehende Baeume    
-        drawTrees(120, 530, "#0B3B24");
-        drawTrees(240, 510, "#0B6138");
-        drawTrees(750, 540, "#0B3B24");
-
+        
         //Hellere Bäume zufällig platzieren
         for (let i: number = 0; i < 5; i++) {
             let x: number = 260 + Math.random() * 600;
@@ -163,6 +159,11 @@ namespace Aufgabe4 {
                 fahrer[i].y = 230;
             }
         }
+        
+        // feststehende Baeume    
+        drawTrees(120, 530, "#0B3B24");
+        drawTrees(240, 510, "#0B6138");
+        drawTrees(750, 540, "#0B3B24");
 
         //Schneeflocken bewegen
         for (let i: number = 0; i < snowX.length; i++) {

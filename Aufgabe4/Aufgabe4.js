@@ -11,8 +11,8 @@ var Aufgabe4;
     window.addEventListener("load", init);
     let crc2;
     let fahrer = []; //Interfacezugriff
-    let fahrerX = [];
-    let fahrerY = [];
+    //let fahrerX: number[] = [];
+    //let fahrerY: number[] = [];
     let cloudX = [];
     let cloudY = [];
     let snowX = [];
@@ -74,10 +74,6 @@ var Aufgabe4;
         crc2.lineTo(800, 350);
         crc2.stroke();
         crc2.closePath();
-        // feststehende Baeume    
-        drawTrees(120, 530, "#0B3B24");
-        drawTrees(240, 510, "#0B6138");
-        drawTrees(750, 540, "#0B3B24");
         //Hellere B�ume zuf�llig platzieren
         for (let i = 0; i < 5; i++) {
             let x = 260 + Math.random() * 600;
@@ -132,6 +128,10 @@ var Aufgabe4;
                 fahrer[i].y = 230;
             }
         }
+        // feststehende Baeume    
+        drawTrees(120, 530, "#0B3B24");
+        drawTrees(240, 510, "#0B6138");
+        drawTrees(750, 540, "#0B3B24");
         //Schneeflocken bewegen
         for (let i = 0; i < snowX.length; i++) {
             if (snowY[i] > 600) {

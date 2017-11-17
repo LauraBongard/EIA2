@@ -15,6 +15,7 @@ var Aufgabe5;
     let snow = [];
     let cloud = [];
     let gondel = [];
+    let tree = [];
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -67,17 +68,9 @@ var Aufgabe5;
         Aufgabe5.crc2.lineTo(800, 350);
         Aufgabe5.crc2.stroke();
         Aufgabe5.crc2.closePath();
-        //Hellere B�ume zuf�llig platzieren
-        for (let i = 0; i < 5; i++) {
-            let x = 260 + Math.random() * 600;
-            let y = 400 + Math.random() * 100;
-            drawTrees(x, y, "#0B6138");
-        }
-        //Dunklere B�ume zuf�llig platzieren
-        for (let i = 0; i < 8; i++) {
-            let x = 260 + Math.random() * 600;
-            let y = 400 + Math.random() * 100;
-            drawTrees(x, y, "#0B3B24");
+        //Schleife f�r Baeume
+        for (i = 0; i < 10; i++) {
+            tree[i] = new Aufgabe5.Tree(260 + Math.random() * 600, 400 + Math.random() * 100);
         }
         //Schleife f�r Skifahrer
         for (i = 0; i < 5; i++) {
@@ -117,37 +110,17 @@ var Aufgabe5;
             let s = cloud[i];
             s.move();
         }
+        //Baeume zeichnen
+        for (i = 0; i < tree.length; i++) {
+            let s = tree[i];
+            s.draw();
+        }
         //Gondel bewegen
         for (i = 0; i < gondel.length; i++) {
             let s = gondel[i];
             s.move();
         }
         window.setTimeout(animate, 20); // alle 20 ms wird animate aufgerufen
-        // feststehende Baeume    
-        drawTrees(120, 530, "#0B3B24");
-        drawTrees(240, 510, "#0B6138");
-        drawTrees(750, 540, "#0B3B24");
-    }
-    //Funktion zum Baeume zeichnen
-    function drawTrees(x, y, color) {
-        //Stamm zeichnen
-        Aufgabe5.crc2.fillStyle = "#3B170B";
-        Aufgabe5.crc2.fillRect(x - 5, y + 60, 15, 20);
-        //Nadeln zeichnen
-        Aufgabe5.crc2.beginPath();
-        Aufgabe5.crc2.moveTo(x, y);
-        Aufgabe5.crc2.lineTo(x + 25, y + 40);
-        Aufgabe5.crc2.lineTo(x - 25, y + 40);
-        Aufgabe5.crc2.closePath();
-        Aufgabe5.crc2.fillStyle = color;
-        Aufgabe5.crc2.fill();
-        Aufgabe5.crc2.beginPath();
-        Aufgabe5.crc2.moveTo(x, y + 10);
-        Aufgabe5.crc2.lineTo(x + 25, y + 60);
-        Aufgabe5.crc2.lineTo(x - 25, y + 60);
-        Aufgabe5.crc2.closePath();
-        Aufgabe5.crc2.fillStyle = color;
-        Aufgabe5.crc2.fill();
     }
 })(Aufgabe5 || (Aufgabe5 = {}));
 //# sourceMappingURL=Aufgabe5.js.map

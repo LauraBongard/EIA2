@@ -7,17 +7,18 @@ Datum: 17.11.17
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 namespace Aufgabe5 {
-    
+
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
 
     let i: number;
     let image: ImageData;
-    
+
     let skier: Skier[] = [];
     let snow: Snow[] = [];
     let cloud: Cloud[] = [];
     let gondel: Gondel[] = [];
+    let tree: Tree[] = [];
 
 
     function init(): void {
@@ -79,42 +80,33 @@ namespace Aufgabe5 {
         crc2.stroke();
         crc2.closePath();
 
-        
-        //Hellere Bäume zufällig platzieren
-        for (let i: number = 0; i < 5; i++) {
-            let x: number = 260 + Math.random() * 600;
-            let y: number = 400 + Math.random() * 100;
-            drawTrees(x, y, "#0B6138");
-        }
+        //Schleife für Baeume
+        for (i = 0; i < 10; i++) {
+            tree[i] = new Tree(260 + Math.random() * 600, 400 + Math.random() * 100);
 
-        //Dunklere Bäume zufällig platzieren
-        for (let i: number = 0; i < 8; i++) {
-            let x: number = 260 + Math.random() * 600;
-            let y: number = 400 + Math.random() * 100;
-            drawTrees(x, y, "#0B3B24");
         }
 
         //Schleife für Skifahrer
-        for ( i = 0; i < 5; i++) {
-            skier[i] = new Skier (800, 250, Math.random() * 3 - 10, Math.random() * 3 + 5, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
-             
+        for (i = 0; i < 5; i++) {
+            skier[i] = new Skier(800, 250, Math.random() * 3 - 10, Math.random() * 3 + 5, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+
         }
-        
+
         //Schleife für Schneeflocken
-        for (i = 0; i < 140; i++)  {
-            snow[i] = new Snow (Math.random() * 800, Math.random() * 600);
+        for (i = 0; i < 140; i++) {
+            snow[i] = new Snow(Math.random() * 800, Math.random() * 600);
         }
-        
+
         //Schleife für Wolken
-        for (i = 0; i < 3; i++)  {
-            cloud[i] = new Cloud (0 + Math.random() * 800, 0 + Math.random() * 100 + 20);
+        for (i = 0; i < 3; i++) {
+            cloud[i] = new Cloud(0 + Math.random() * 800, 0 + Math.random() * 100 + 20);
         }
-        
+
         //Schleife für Gondel
-        for (i = 0; i < 1; i++)  {
-            gondel[i] = new Gondel (650, 450);
+        for (i = 0; i < 1; i++) {
+            gondel[i] = new Gondel(650, 450);
         }
-        
+
         //Bild als Hintergrund speichern
         image = crc2.getImageData(0, 0, 800, 600);
 
@@ -131,8 +123,8 @@ namespace Aufgabe5 {
             let s: Skier = skier[i];
             s.move();
         }
-        
-       
+
+
         //Schneeflocken bewegen
         for (i = 0; i < snow.length; i++) {
             let s: Snow = snow[i];
@@ -145,6 +137,12 @@ namespace Aufgabe5 {
             s.move();
         }
 
+        //Baeume zeichnen
+        for (i = 0; i < tree.length; i++) {
+            let s: Tree = tree[i];
+            s.draw();
+        }
+        
         //Gondel bewegen
         for (i = 0; i < gondel.length; i++) {
             let s: Gondel = gondel[i];
@@ -152,34 +150,7 @@ namespace Aufgabe5 {
         }
 
         window.setTimeout(animate, 20); // alle 20 ms wird animate aufgerufen
-     
-        // feststehende Baeume    
-        drawTrees(120, 530, "#0B3B24");
-        drawTrees(240, 510, "#0B6138");
-        drawTrees(750, 540, "#0B3B24");
-}
 
-    //Funktion zum Baeume zeichnen
-    function drawTrees(x: number, y: number, color: string): void {
-        //Stamm zeichnen
-        crc2.fillStyle = "#3B170B";
-        crc2.fillRect(x - 5, y + 60, 15, 20);
-        //Nadeln zeichnen
-        crc2.beginPath();
-        crc2.moveTo(x, y);
-        crc2.lineTo(x + 25, y + 40);
-        crc2.lineTo(x - 25, y + 40);
-        crc2.closePath();
-        crc2.fillStyle = color;
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(x, y + 10);
-        crc2.lineTo(x + 25, y + 60);
-        crc2.lineTo(x - 25, y + 60);
-        crc2.closePath();
-        crc2.fillStyle = color;
-        crc2.fill();
     }
-
 
 }

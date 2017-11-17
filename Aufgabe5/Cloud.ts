@@ -6,17 +6,17 @@ Datum: 17.11.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-namespace Aufgabe5    {
-    
+namespace Aufgabe5 {
+
     export class Cloud {
         x: number;
         y: number;
-    
-        constructor (_x: number, _y: number) {
+
+        constructor(_x: number, _y: number) {
             this.x = _x;
             this.y = _y;
         }
-        
+
         move(): void {
 
             if (this.x > 850) {
@@ -27,7 +27,7 @@ namespace Aufgabe5    {
 
             this.draw();
         }
-        
+
         draw(): void {
             crc2.fillStyle = "#FAFAFA";
             crc2.beginPath();
@@ -40,6 +40,6 @@ namespace Aufgabe5    {
             crc2.arc(this.x + 40, this.y, 20, 0, 2 * Math.PI);
             crc2.fill();
         }
-        
+
     }
 }

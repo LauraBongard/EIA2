@@ -2,7 +2,7 @@
 Aufgabe: 7, StudiVZ
 Name: Laura Bongard
 Matrikel: 256028
-Datum: 01.12.17
+Datum: 02.12.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
@@ -11,12 +11,12 @@ var Aufgabe7;
     var students = []; //Variable students vom Typ StudentData Array
     var stop = false; //Stop Variable = false
     while (!stop) {
-        var action = prompt("Datensatz anlegen (n), abfragen(a) oder Programm beenden (s)\nn,a oder s eingeben");
+        var action = prompt("Datensatz anlegen (n), abfragen(a) oder Programm beenden (s)\n n,a oder s eingeben");
         // action-Variable vom Typ string gibt prompt aus
         switch (action) {
             case "n": //wenn n/N eingegeben wird, gib prompt aus
             case "N":
-                var input = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 oder 1) und Kommentar");
+                var input = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 = weiblich oder 1 = maennlich) und Kommentar");
                 alert(saveData(input));
                 break;
             case "a": //wenn a/A eingegeben, erstell matrikel Variable
@@ -40,7 +40,7 @@ var Aufgabe7;
             comment: dataArray[5] //comment an 6.Stelle eingegeben
         };
         if (Number.isNaN(studentData.matrikel)) {
-            return "Matrikelnummer ist Falsch!";
+            return "Matrikelnummer ist falsch!";
         }
         students.push(studentData); //students Array wird erweitert durch Variable studentData also den input
         let gender;
@@ -48,7 +48,7 @@ var Aufgabe7;
             gender = "weiblich";
         }
         else {
-            gender = "m�nnlich";
+            gender = "maennlich";
         }
         //return "Deine Daten lauten:\n" + "\nMatrikelnummer: " + studentData.matrikel + "\nName: " + studentData.firstname + studentData.lastname + "\nAlter: " + studentData.age + "\nGeschlecht: " + gender + "\nKommentar: " + studentData.comment;
         //string wird ausgegeben
@@ -57,8 +57,9 @@ var Aufgabe7;
     function queryData(_matrikel) {
         for (let i = 0; i < students.length; i++) {
             if (students[i].matrikel == _matrikel) {
-                let gender = students[i].gender ? "weiblich" : "m�nnlich"; //gender Variable wird als interface-Gender Parameter gespeichert, pr�ft, ob m�nnlich/weiblich
-                return "Gefundene Daten zur Matrikelnummer: " + students[i].matrikel + "\nName: " + students[i].firstname + students[i].lastname + "\nAlter: " + students[i].age + "\nGeschlecht: " + gender + "\nKommentar: " + students[i].comment;
+                let gender = students[i].gender ? "weiblich" : "maennlich"; //gender Variable wird als interface-Gender Parameter gespeichert, pr�ft, ob m�nnlich/weiblich
+                //?-Operator ist verk�rzte Form einer if-else-Anweisung: fragt ab, ob gender als weiblich/m�nnlich gespeichert wurde
+                return "Student: " + students[i].matrikel + "\nName: " + students[i].firstname + students[i].lastname + "\nAlter: " + students[i].age + "\nGeschlecht: " + gender + "\nKommentar: " + students[i].comment;
             }
             else {
                 continue;

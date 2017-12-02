@@ -2,7 +2,7 @@
 Aufgabe: 7, StudiVZ
 Name: Laura Bongard
 Matrikel: 256028
-Datum: 01.12.17
+Datum: 02.12.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
@@ -21,12 +21,12 @@ namespace Aufgabe7 {
     var stop: boolean = false; //Stop Variable = false
 
     while (!stop) { //Solange stop = false, führe Codeblock aus
-        var action: string = prompt("Datensatz anlegen (n), abfragen(a) oder Programm beenden (s)\nn,a oder s eingeben");
+        var action: string = prompt("Datensatz anlegen (n), abfragen(a) oder Programm beenden (s)\n n,a oder s eingeben");
         // action-Variable vom Typ string gibt prompt aus
         switch (action) { //switch: perform different actions based on different conditions
             case "n": //wenn n/N eingegeben wird, gib prompt aus
             case "N": //dann alert Box mit Funktion saveData(input)
-                var input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 oder 1) und Kommentar");
+                var input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 = weiblich oder 1 = maennlich) und Kommentar");
                 alert(saveData(input));
                 break;
             case "a": //wenn a/A eingegeben, erstell matrikel Variable
@@ -54,7 +54,7 @@ namespace Aufgabe7 {
         };
         
         if (Number.isNaN(studentData.matrikel)) {
-            return "Matrikelnummer ist Falsch!";
+            return "Matrikelnummer ist falsch!";
         }
 
         students.push(studentData); //students Array wird erweitert durch Variable studentData also den input
@@ -69,7 +69,7 @@ namespace Aufgabe7 {
 
         else {
 
-            gender = "männlich";
+            gender = "maennlich";
 
         }
 
@@ -86,9 +86,9 @@ namespace Aufgabe7 {
 
             if (students[i].matrikel == _matrikel) { //wenn eingegebene Matrikel mit irgendeiner gespeicherten Matrikel übereinstimmt
 
-                let gender: string = students[i].gender ? "weiblich" : "männlich"; //gender Variable wird als interface-Gender Parameter gespeichert, prüft, ob männlich/weiblich
-
-                return "Gefundene Daten zur Matrikelnummer: " + students[i].matrikel + "\nName: " + students[i].firstname + students[i].lastname + "\nAlter: " + students[i].age + "\nGeschlecht: " + gender + "\nKommentar: " + students[i].comment;
+                let gender: string = students[i].gender ? "weiblich" : "maennlich"; //gender Variable wird als interface-Gender Parameter gespeichert, prüft, ob männlich/weiblich
+                //?-Operator ist verkürzte Form einer if-else-Anweisung: fragt ab, ob gender als weiblich/männlich gespeichert wurde
+                return "Student: " + students[i].matrikel + "\nName: " + students[i].firstname + students[i].lastname + "\nAlter: " + students[i].age + "\nGeschlecht: " + gender + "\nKommentar: " + students[i].comment;
                 // string wird ausgegeben
             }
 

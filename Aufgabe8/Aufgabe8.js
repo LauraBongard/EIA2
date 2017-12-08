@@ -8,11 +8,12 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var Aufgabe8;
 (function (Aufgabe8) {
-    window.addEventListener("load", input);
-    function input() {
+    window.addEventListener("load", inputWork);
+    function inputWork() {
         let input = prompt("Gib eine Zahl zwischen 10 und 100 ein."); //input Variable ruft prompt Box auf
         if (isNaN(parseInt(input)) || parseInt(input) < 10 || parseInt(input) > 100) {
             alert("Deine Eingabe ist falsch.");
+            inputWork(); //Rekursion
         }
         else {
             for (let i = 0; i < parseInt(input); i++) {

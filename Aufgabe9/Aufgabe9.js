@@ -10,10 +10,10 @@ var Aufgabe9;
 (function (Aufgabe9) {
     window.addEventListener("load", init);
     let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    let currentLetter;
+    let currentLetter; //Variable speichert aktuellen Buchstaben
     let writingSection;
-    document.addEventListener("keydown", keyboardInput);
-    document.addEventListener("keypressed", handleAlt);
+    document.addEventListener("keydown", keyboardInput); //Eventlistener wenn Buchstabe gedr�ckt wurde
+    document.addEventListener("keypressed", handleAlt); //Eventlistener f�r L�schen des Buchstabens ->Alt soll gedr�ckt bleiben
     function init() {
         for (let i = 0; i < letters.length; i++) {
             let d = document.createElement("div");
@@ -22,18 +22,18 @@ var Aufgabe9;
             d.style.border = "1px solid grey";
             d.style.height = "4%";
             d.innerText = letters[i];
-            d.id = letters[i];
-            d.className = "letters";
-            d.addEventListener("click", handleMouseClick);
-            document.body.appendChild(d);
+            d.id = letters[i]; //IDs vergeben
+            d.className = "letters"; //Klasse "letters"
+            d.addEventListener("click", handleMouseClick); //Wenn Buchstabendiv angeklickt dann handleMouseClick
+            document.body.appendChild(d); //erstellte Box an Body anh�ngen
         }
         drawWritingSection();
     }
     function handleMouseClick(_event) {
         let s = _event.target;
-        s.style.backgroundColor = "lightblue";
-        currentLetter = s.id;
-        let listOfDivs = document.getElementsByClassName("letters");
+        s.style.backgroundColor = "lightblue"; //optische Hervorhebung bei angeklicktem Buchstaben
+        currentLetter = s.id; //ID des aktuellen Bcuhstabens als currentLetter speichern
+        let listOfDivs = document.getElementsByClassName("letters"); //Jedes Div der Klasse letters in Variable speichern
         for (let i = 0; i < listOfDivs.length; i++) {
             if (currentLetter != listOfDivs[i].id) {
                 listOfDivs[i].style.backgroundColor = "white";
@@ -43,7 +43,7 @@ var Aufgabe9;
     function keyboardInput(event) {
         // PRESS a/A
         if (event.key == "a" || event.key == "A") {
-            currentLetter = event.key;
+            currentLetter = event.key; //speichere a/A als currentLetter
             setLetter;
         }
         else if (event.key == "b" || event.key == "B") {
@@ -148,23 +148,22 @@ var Aufgabe9;
         }
     }
     function handleAlt(event) {
-        // PRESS SPACE BAR
         if (event.keyCode == 18) {
             deleteLetter;
         }
     }
     function drawWritingSection() {
-        let l = document.createElement("div");
+        let l = document.createElement("div"); //Div erstellen f�r writing Section
         l.style.width = "855px";
         l.style.height = "300px";
         l.style.border = "2px solid black";
         l.style.marginLeft = "3px";
         l.style.marginTop = "10px";
-        l.addEventListener("click", setLetter);
-        document.body.appendChild(l);
+        l.addEventListener("click", setLetter); //wenn auf writing Section geklickt wird f�hre setLetter aus
+        document.body.appendChild(l); //writingSection an body anh�ngen
     }
     function setLetter(_event) {
-        let box = document.createElement("div");
+        let box = document.createElement("div"); //BuchstabenDiv in writingSection erstellen
         box.style.width = "2%";
         box.style.padding = "0.3em";
         box.style.border = "1px solid grey";
@@ -172,14 +171,13 @@ var Aufgabe9;
         box.style.position = "absolute";
         box.style.backgroundColor = "white";
         box.innerText = currentLetter;
-        box.style.left = _event.pageX + "px";
+        box.style.left = _event.pageX + "px"; // X-/Y- Koordinaten des Cursors �bernehmen
         box.style.top = _event.pageY + "px";
-        box.addEventListener("click", deleteLetter);
+        box.addEventListener("click", deleteLetter); //wenn auf BuchstabenDiv geklickt wird f�hre deleteLetter aus (funtioniert nicht)
         document.body.appendChild(box);
-        writingSection = _event.target;
+        writingSection = _event.target; //writingSection ist das EventTarget
     }
     function deleteLetter(_event) {
-        delete "div";
     }
 })(Aufgabe9 || (Aufgabe9 = {}));
 //# sourceMappingURL=Aufgabe9.js.map

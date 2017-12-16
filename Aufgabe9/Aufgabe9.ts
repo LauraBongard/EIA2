@@ -12,15 +12,15 @@ namespace Aufgabe9 {
 
     let letters: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-    let currentLetter: string;
+    let currentLetter: string; //Variable speichert aktuellen Buchstaben
 
     let writingSection: HTMLDivElement;
-    
-    document.addEventListener("keydown", keyboardInput);
-    
-    document.addEventListener("keypressed", handleAlt);
 
-    function init(): void {
+    document.addEventListener("keydown", keyboardInput); //Eventlistener wenn Buchstabe gedrückt wurde
+
+    document.addEventListener("keypressed", handleAlt); //Eventlistener für Löschen des Buchstabens ->Alt soll gedrückt bleiben
+
+    function init(): void { //Div Boxen für Buchstaben erstellen
         for (let i: number = 0; i < letters.length; i++) {
             let d: HTMLDivElement = document.createElement("div");
             d.style.width = "2%";
@@ -29,39 +29,39 @@ namespace Aufgabe9 {
             d.style.height = "4%";
             d.innerText = letters[i];
 
-            d.id = letters[i];
-            d.className = "letters";
+            d.id = letters[i]; //IDs vergeben
+            d.className = "letters"; //Klasse "letters"
 
-            d.addEventListener("click", handleMouseClick);
+            d.addEventListener("click", handleMouseClick); //Wenn Buchstabendiv angeklickt dann handleMouseClick
 
-            document.body.appendChild(d);
+            document.body.appendChild(d); //erstellte Box an Body anhängen
 
         }
 
         drawWritingSection();
-        
-        
+
+
     }
 
     function handleMouseClick(_event: MouseEvent): void {
         let s: HTMLDivElement = <HTMLDivElement>_event.target;
-        s.style.backgroundColor = "lightblue";
+        s.style.backgroundColor = "lightblue"; //optische Hervorhebung bei angeklicktem Buchstaben
 
-        currentLetter = s.id;
+        currentLetter = s.id; //ID des aktuellen Bcuhstabens als currentLetter speichern
 
-        let listOfDivs: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("letters");
+        let listOfDivs: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("letters"); //Jedes Div der Klasse letters in Variable speichern
 
-        for (let i: number = 0; i < listOfDivs.length; i++) {
-            if (currentLetter != listOfDivs[i].id) {
+        for (let i: number = 0; i < listOfDivs.length; i++) { //listOfDivs durchgehen, ob irgendeine ID mit der ID übereinstimmt, die in currentLetter gespeichert ist
+            if (currentLetter != listOfDivs[i].id) { //Prüfen auf Ungleichheit
                 listOfDivs[i].style.backgroundColor = "white";
             }
         }
     }
-    
+
     function keyboardInput(event: KeyboardEvent): void {
         // PRESS a/A
-        if (event.key == "a" || event.key == "A") {
-            currentLetter = event.key;
+        if (event.key == "a" || event.key == "A") { // wenn a/A gedrückt wurde
+            currentLetter = event.key; //speichere a/A als currentLetter
             setLetter;
         }
         // PRESS b/B
@@ -69,144 +69,144 @@ namespace Aufgabe9 {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS RIGHT ARROW
+        // PRESS c/C
         else if (event.key == "c" || event.key == "C") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS DOWN ARROW
+
         else if (event.key == "d" || event.key == "D") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "e" || event.key == "E") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "f" || event.key == "F") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "g" || event.key == "G") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "h" || event.key == "H") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "i" || event.key == "I") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "j" || event.key == "J") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "k" || event.key == "K") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "l" || event.key == "L") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "m" || event.key == "M") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "n" || event.key == "N") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "o" || event.key == "O") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "p" || event.key == "P") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "q" || event.key == "Q") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "r" || event.key == "R") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "s" || event.key == "S") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "t" || event.key == "T") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "u" || event.key == "U") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "v" || event.key == "V") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "w" || event.key == "W") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "x" || event.key == "X") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "y" || event.key == "Y") {
             currentLetter = event.key;
             setLetter;
         }
-        // PRESS SPACE BAR
+
         else if (event.key == "z" || event.key == "Z") {
             currentLetter = event.key;
             setLetter;
         }
-        
-        
-       
-        
-        
+
+
+
+
+
     }
-    
-    function handleAlt(event: KeyboardEvent): void {
-         // PRESS SPACE BAR
-        if (event.keyCode == 18 ) { //KeyCode 18 = Alt Taste
-           
+
+    function handleAlt(event: KeyboardEvent): void { //Fkt für KeyboardEvent gepresste Alt-Taste
+
+        if (event.keyCode == 18) { //wenn KeyCode 18 = Alt Taste gedrückt ist
+
             deleteLetter;
         }
-        }
+    }
 
     function drawWritingSection(): void {
 
-        let l: HTMLDivElement = document.createElement("div");
+        let l: HTMLDivElement = document.createElement("div"); //Div erstellen für writing Section
 
         l.style.width = "855px";
         l.style.height = "300px";
@@ -214,15 +214,15 @@ namespace Aufgabe9 {
         l.style.marginLeft = "3px";
         l.style.marginTop = "10px";
 
-        l.addEventListener("click", setLetter);
-        document.body.appendChild(l);
+        l.addEventListener("click", setLetter); //wenn auf writing Section geklickt wird führe setLetter aus
+        document.body.appendChild(l); //writingSection an body anhängen
 
     }
 
 
     function setLetter(_event: MouseEvent): void {
 
-        let box: HTMLDivElement = document.createElement("div");
+        let box: HTMLDivElement = document.createElement("div"); //BuchstabenDiv in writingSection erstellen
         box.style.width = "2%";
         box.style.padding = "0.3em";
         box.style.border = "1px solid grey";
@@ -230,19 +230,19 @@ namespace Aufgabe9 {
         box.style.position = "absolute";
         box.style.backgroundColor = "white";
         box.innerText = currentLetter;
-        box.style.left = _event.pageX + "px";
+        box.style.left = _event.pageX + "px"; // X-/Y- Koordinaten des Cursors übernehmen
         box.style.top = _event.pageY + "px";
-        
-        box.addEventListener("click", deleteLetter);
+
+        box.addEventListener("click", deleteLetter); //wenn auf BuchstabenDiv geklickt wird führe deleteLetter aus (funtioniert nicht)
 
         document.body.appendChild(box);
-        writingSection = <HTMLDivElement>_event.target;
+        writingSection = <HTMLDivElement>_event.target; //writingSection ist das EventTarget
 
     }
 
-    function deleteLetter(_event: MouseEvent): void {
+    function deleteLetter(_event: MouseEvent): void { //Fkt um Buchstaben zu löschen...
+
         
-            delete ;
-        
-        }
+
+    }
 }

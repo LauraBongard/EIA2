@@ -242,8 +242,8 @@ namespace Aufgabe9 {
 
     function deleteLetter(_event: MouseEvent): void { //Fkt um Buchstaben zu löschen
         
-        let h: HTMLDivElement = <HTMLDivElement>_event.target;
-        document.body.removeChild(h);
+        let h: HTMLDivElement = <HTMLDivElement>_event.target; //h als event target
+        document.body.removeChild(h); // h div entfernen
 
     }
 }

@@ -233,16 +233,17 @@ namespace Aufgabe9 {
         box.style.left = _event.pageX + "px"; // X-/Y- Koordinaten des Cursors übernehmen
         box.style.top = _event.pageY + "px";
 
-        box.addEventListener("click", deleteLetter); //wenn auf BuchstabenDiv geklickt wird führe deleteLetter aus (funtioniert nicht)
+        box.addEventListener("click", deleteLetter); //wenn auf BuchstabenDiv geklickt wird führe deleteLetter aus
 
         document.body.appendChild(box);
         writingSection = <HTMLDivElement>_event.target; //writingSection ist das EventTarget
 
     }
 
-    function deleteLetter(_event: MouseEvent): void { //Fkt um Buchstaben zu löschen...
-
+    function deleteLetter(_event: MouseEvent): void { //Fkt um Buchstaben zu löschen
         
+        let h: HTMLDivElement = <HTMLDivElement>_event.target;
+        document.body.removeChild(h);
 
     }
 }

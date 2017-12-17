@@ -173,11 +173,13 @@ var Aufgabe9;
         box.innerText = currentLetter;
         box.style.left = _event.pageX + "px"; // X-/Y- Koordinaten des Cursors �bernehmen
         box.style.top = _event.pageY + "px";
-        box.addEventListener("click", deleteLetter); //wenn auf BuchstabenDiv geklickt wird f�hre deleteLetter aus (funtioniert nicht)
+        box.addEventListener("click", deleteLetter); //wenn auf BuchstabenDiv geklickt wird f�hre deleteLetter aus
         document.body.appendChild(box);
         writingSection = _event.target; //writingSection ist das EventTarget
     }
     function deleteLetter(_event) {
+        let h = _event.target;
+        document.body.removeChild(h);
     }
 })(Aufgabe9 || (Aufgabe9 = {}));
 //# sourceMappingURL=Aufgabe9.js.map

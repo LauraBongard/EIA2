@@ -241,9 +241,16 @@ namespace Aufgabe9 {
     }
 
     function deleteLetter(_event: MouseEvent): void { //Fkt um Buchstaben zu löschen
+    
+        if (_event.altKey == false) {
+            return;
+            }
         
-        let h: HTMLDivElement = <HTMLDivElement>_event.target; //h als event target
-        document.body.removeChild(h); // h div entfernen
+        if (_event.altKey == true) {
+        
+            let h: HTMLDivElement = <HTMLDivElement>_event.target; //h als event target
+            document.body.removeChild(h); // h div entfernen
+            }
 
     }
 }

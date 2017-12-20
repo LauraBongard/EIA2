@@ -178,8 +178,13 @@ var Aufgabe9;
         writingSection = _event.target; //writingSection ist das EventTarget
     }
     function deleteLetter(_event) {
-        let h = _event.target; //h als event target
-        document.body.removeChild(h); // h div entfernen
+        if (_event.altKey == false) {
+            return;
+        }
+        if (_event.altKey == true) {
+            let h = _event.target; //h als event target
+            document.body.removeChild(h); // h div entfernen
+        }
     }
 })(Aufgabe9 || (Aufgabe9 = {}));
 //# sourceMappingURL=Aufgabe9.js.map

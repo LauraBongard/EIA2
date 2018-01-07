@@ -1,0 +1,67 @@
+/*
+Aufgabe: 10, Weihnachtsbaumkonfigurator
+Name: Laura Bongard
+Matrikel: 256028
+Datum: 06.01.18
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+body {
+	float: left;
+	font-family: 'Open Sans', sans-serif;
+	color: black;
+	font-size: 0.8em;
+	width: 100%;
+	margin-left: 25%;
+}
+
+h1 {
+	color: #A2D9CE;
+	font-size: 3em;
+}
+
+img {
+	position: absolute;
+	width: 15%;
+	left: 0.5em;
+}
+
+input:invalid {
+	background: #F1948A;
+}
+
+label::after {
+	display: block;
+}
+
+input {
+	margin: 1em;
+}
+
+button {
+	background-color: #7DCEA0;
+	color: white;
+    padding: 0.5em;
+    text-align: center;
+    display: inline-block;
+    margin: 0.5em;
+    
+}
+#daten input {
+	display: block;
+	height: 10%;
+	width: 15%;
+}
+
+#zusammenfassung {
+	position: fixed;
+	right: 0.5em;
+	top: 0.5em;
+	padding: 1em;
+	
+}
+
+.warenkorb {
+	font-size: 2em;
+}
+ 

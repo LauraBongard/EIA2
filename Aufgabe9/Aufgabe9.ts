@@ -18,7 +18,6 @@ namespace Aufgabe9 {
 
     document.addEventListener("keydown", keyboardInput); //Eventlistener wenn Buchstabe gedrückt wurde
 
-    document.addEventListener("keypressed", handleAlt); //Eventlistener für Löschen des Buchstabens ->Alt soll gedrückt bleiben
 
     function init(): void { //Div Boxen für Buchstaben erstellen
         for (let i: number = 0; i < letters.length; i++) {
@@ -27,10 +26,10 @@ namespace Aufgabe9 {
             d.style.padding = "0.3em";
             d.style.border = "1px solid grey";
             d.style.height = "4%";
-            d.innerText = letters[i];
+            d.innerText = letters[i]; //mit innerText = Buchstabe
 
-            d.id = letters[i]; //IDs vergeben
-            d.className = "letters"; //Klasse "letters"
+            d.id = letters[i]; //IDs vergeben um später ids als currentletter speichern zukönnen
+            d.className = "letters"; //Klasse "letters" um alle Divs in NodeList speichern zu können
 
             d.addEventListener("click", handleMouseClick); //Wenn Buchstabendiv angeklickt dann handleMouseClick
 
@@ -43,17 +42,17 @@ namespace Aufgabe9 {
 
     }
 
-    function handleMouseClick(_event: MouseEvent): void {
+    function handleMouseClick(_event: MouseEvent): void { //Fkt ausführen wenn Klick auf Buchstabe im Auswahlbereich
         let s: HTMLDivElement = <HTMLDivElement>_event.target;
         s.style.backgroundColor = "lightblue"; //optische Hervorhebung bei angeklicktem Buchstaben
 
         currentLetter = s.id; //ID des aktuellen Bcuhstabens als currentLetter speichern
 
-        let listOfDivs: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("letters"); //Jedes Div der Klasse letters in Variable speichern
+        let listOfDivs: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("letters"); //Jedes Div der Klasse letters in listOfDivs speichern
 
         for (let i: number = 0; i < listOfDivs.length; i++) { //listOfDivs durchgehen, ob irgendeine ID mit der ID übereinstimmt, die in currentLetter gespeichert ist
             if (currentLetter != listOfDivs[i].id) { //Prüfen auf Ungleichheit
-                listOfDivs[i].style.backgroundColor = "white";
+                listOfDivs[i].style.backgroundColor = "white"; //optische Hervorhebung entfernen
             }
         }
     }
@@ -62,7 +61,7 @@ namespace Aufgabe9 {
         // PRESS a/A
         if (event.key == "a" || event.key == "A") { // wenn a/A gedrückt wurde
             currentLetter = event.key; //speichere a/A als currentLetter
-            setLetter;
+            setLetter; //setLetter wird ausgeführt wenn man auf Mailfeld klickt nachdem Tastendruck
         }
         // PRESS b/B
         else if (event.key == "b" || event.key == "B") {
@@ -189,19 +188,6 @@ namespace Aufgabe9 {
             currentLetter = event.key;
             setLetter;
         }
-
-
-
-
-
-    }
-
-    function handleAlt(event: KeyboardEvent): void { //Fkt für KeyboardEvent gepresste Alt-Taste
-
-        if (event.keyCode == 18) { //wenn KeyCode 18 = Alt Taste gedrückt ist
-
-            deleteLetter;
-        }
     }
 
     function drawWritingSection(): void {
@@ -220,7 +206,7 @@ namespace Aufgabe9 {
     }
 
 
-    function setLetter(_event: MouseEvent): void {
+    function setLetter(_event: MouseEvent): void { //wenn Tastendruck/auf Bcuhstaben gedrückt wurde
 
         let box: HTMLDivElement = document.createElement("div"); //BuchstabenDiv in writingSection erstellen
         box.style.width = "2%";
@@ -236,21 +222,20 @@ namespace Aufgabe9 {
         box.addEventListener("click", deleteLetter); //wenn auf BuchstabenDiv geklickt wird führe deleteLetter aus
 
         document.body.appendChild(box);
-        writingSection = <HTMLDivElement>_event.target; //writingSection ist das EventTarget
 
     }
 
     function deleteLetter(_event: MouseEvent): void { //Fkt um Buchstaben zu löschen
-    
-        if (_event.altKey == false) {
+
+        if (_event.altKey == false) { //wenn altKey nicht gedrückt ist, dann mach nichts
             return;
-            }
-        
-        if (_event.altKey == true) {
-        
-            let h: HTMLDivElement = <HTMLDivElement>_event.target; //h als event target
+        }
+
+        if (_event.altKey == true) { //wenn altKey gedrückt ist
+
+            let h: HTMLDivElement = <HTMLDivElement>_event.target; //dann ist h event target
             document.body.removeChild(h); // h div entfernen
-            }
+        }
 
     }
 }

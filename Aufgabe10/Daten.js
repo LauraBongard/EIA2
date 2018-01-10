@@ -30,8 +30,8 @@ var Aufgabe10;
         { kind: "Lieferung", name: "Standard Lieferung", price: 4 },
         { kind: "Lieferung", name: "Morning Express Lieferung", price: 9 }
     ];
-    Aufgabe10.baumArt = [];
-    Aufgabe10.kerz = [];
+    Aufgabe10.baumArt = []; //speichert temp: speichert name + preis der b�ume
+    Aufgabe10.kerz = []; //speichert temp: speichert name + preis der kerzen
     for (let i = 0; i < Aufgabe10.angebot.length; i++) {
         if (Aufgabe10.angebot[i].kind == "Baumart") {
             let temp = [Aufgabe10.angebot[i].name, Aufgabe10.angebot[i].price];

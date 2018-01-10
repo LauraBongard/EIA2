@@ -12,15 +12,17 @@ namespace Aufgabe10 {
     window.addEventListener("change", createWarenkorb);
 
     let name: HTMLInputElement;
-    let street: HTMLInputElement;
-    let town: HTMLInputElement;
+    let strasse: HTMLInputElement;
+    let hNr: HTMLInputElement;
+    let ort: HTMLInputElement;
+    let plz: HTMLInputElement;
     let mail: HTMLInputElement;
-    
+       
     let label: HTMLLabelElement;
 
-    let cartBaum: string[] = [baumArt[0][0], "" + baumArt[0][1]];
-    let cartHalterung: string[] = ["keine Halterung gewaehlt", "0"];
-    let cartKerzen: string[][] = [];
+    let cartBaum: string[] = [baumArt[0][0], "" + baumArt[0][1]]; //name + preis von baumklein etc. in cartBaum speichern
+    let cartHalterung: string[] = ["keine Halterung gewaehlt", "0"]; 
+    let cartKerzen: string[] = [kerz[0][0], "" + kerz[0][1]]; //name + preis von Kerzen in kerz speichern
     let cartSchmuck: string[][] = [];
     let cartLiefern: string[] = ["keine Lieferoption gewaehlt", "0"];
 
@@ -103,38 +105,23 @@ namespace Aufgabe10 {
     }
     
      function initKerzen(): void {
-          //Beleuchtung:
+        
         let kerzen: HTMLDivElement = <HTMLDivElement>document.getElementById("kerzen");
+        let selectBox2: HTMLSelectElement = document.createElement("select");
+        selectBox2.name = "SelectBeleuchtung";
+        selectBox2.id = "selectBeleuchtung";
+        kerzen.appendChild(selectBox2);
+         
         for (let i: number = 0; i < angebot.length; i++) {
+
             if (angebot[i].kind == "Beleuchtung") {
-                let checkB: HTMLInputElement = document.createElement("input");
-                checkB.type = "checkbox";
-                checkB.name = "CheckboxSchmuckartikel";
-                checkB.value = "check";
-                checkB.id = "check" + i;
-                kerzen.appendChild(checkB);
-
-                let label2: HTMLLabelElement = document.createElement("label");
-                label2.id = "label2." + i;
-                label2.htmlFor = checkB.id;
-                label2.innerText = angebot[i].name;
-                kerzen.appendChild(label2);
-
-                let stepper: HTMLInputElement = document.createElement("input");
-                stepper.type = "number";
-                stepper.name = "StepperSchmuckartikel" + i;
-                stepper.value = "1";
-                stepper.id = "stepper" + i;
-                stepper.min = "0";
-                stepper.max = "10";
-                stepper.step = "1";
-                kerzen.appendChild(stepper);
-                let br: HTMLElement = document.createElement("br");
-                kerzen.appendChild(br);
+                var opt2: HTMLElement = document.createElement("option");
+                opt2.innerText = angebot[i].name;
+                opt2.id = "option2." + i;
+                selectBox2.appendChild(opt2);
             }
         }
-
-     }
+    }
     
     function initSchmuck(): void {
          //Schmuckartikel:
@@ -171,55 +158,70 @@ namespace Aufgabe10 {
     }
     
     function initDaten(): void {
-       
-        //Deine Daten:
-        let data: HTMLDivElement = <HTMLDivElement>document.getElementById("daten");
+
+        let daten: HTMLDivElement = <HTMLDivElement>document.getElementById("daten");
         name = document.createElement("input");
         name.type = "text";
-        name.placeholder = "Name";
         name.name = "DatenName";
+        name.placeholder = "Name";
         name.pattern = "[a-zA-Z]{1,}";
         name.required = true;
-        data.appendChild(name);
+        daten.appendChild(name);
 
-        street = document.createElement("input");
-        street.type = "text";
-        street.placeholder = "Strasse, Hausnummer";
-        street.name = "DatenStrasse";
-        street.pattern = "[a-zA-Z][0-9]{1,}";
-        street.required = true;
-        data.appendChild(street);
+        strasse = document.createElement("input");
+        strasse.type = "text";
+        strasse.name = "DatenStrasse";
+        strasse.placeholder = "Strasse";
+        strasse.pattern = "[a-zA-Z]{1,}";
+        strasse.required = true;
+        daten.appendChild(strasse);
 
-        town = document.createElement("input");
-        town.type = "text";
-        town.placeholder = "Postleitzahl, Ort";
-        town.name = "DatenOrt";
-        town.pattern = "[a-zA-Z][0-9]{1,}";
-        town.required = true;
-        data.appendChild(town);
+        hNr = document.createElement("input");
+        hNr.type = "text";
+        hNr.name = "DatenHausnummer";
+        hNr.placeholder = "Hausnummer";
+        hNr.pattern = "[0-9]{1,}";
+        hNr.required = true;
+        daten.appendChild(hNr);
+
+        ort = document.createElement("input");
+        ort.type = "text";
+        ort.name = "DatenOrt";
+        ort.placeholder = "Ort";
+        ort.pattern = "[a-zA-Z]{1,}";
+        ort.required = true;
+        daten.appendChild(ort);
+
+        plz = document.createElement("input");
+        plz.type = "text";
+        plz.name = "DatenPLZ";
+        plz.placeholder = "Postleitzahl";
+        plz.pattern = "[0-9]{5}";
+        plz.required = true;
+        daten.appendChild(plz);
 
         mail = document.createElement("input");
         mail.type = "email";
-        mail.placeholder = "E-Mail";
         mail.name = "DatenMail";
+        mail.placeholder = "E-Mail";
         mail.required = true;
-        data.appendChild(mail);
+        daten.appendChild(mail);
     }
 
     function createWarenkorb(_event: Event): void {
-        let target: HTMLInputElement = <HTMLInputElement>_event.target;
+        let target: HTMLInputElement = <HTMLInputElement>_event.target; //Target sind alle input elemente
         let stepper: HTMLInputElement[] = [];
         let checkBoxes: HTMLInputElement[] = [];
         let gesamtpreis: number = 0;
 
-        for (let i: number = 0; i < angebot.length; i++) {
+        for (let i: number = 0; i < angebot.length; i++) { //Angebot nach Schmuck durchsuchen
             if (angebot[i].kind == "Schmuck") {
-                stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
-                checkBoxes[i] = <HTMLInputElement>document.getElementById("check" + i);
+                stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i); //jedes Element, das als ID stepper hat wird in let stepper gespeichert
+                checkBoxes[i] = <HTMLInputElement>document.getElementById("check" + i); //jedes Element, das als ID check hat wird in let checkboxes gespeichert   
             }
-            if (target.value == angebot[i].name && target.id == "selectBaumart") {
-                cartBaum[0] = angebot[i].name;
-                cartBaum[1] = "" + angebot[i].price;
+            if (target.value == angebot[i].name && target.id == "selectBaumart") {//wenn target value mit einem name in angebot übereinstimmt und die id des targets selectbaumart ist
+                cartBaum[0] = angebot[i].name; //dann speichere jetzt an erster stelle in cartBaum den name des Artikels
+                cartBaum[1] = "" + angebot[i].price; //an zweiter stelle den preis des artikels
             }
             if (target.id == "radio" + i) {
                 cartHalterung[0] = angebot[i].name;
@@ -231,46 +233,50 @@ namespace Aufgabe10 {
                 cartLiefern[1] = "" + angebot[i].price;
 
             }
-            if (target.id == "check" + i || target.id == "stepper" + i) {
-                cartKerzen[i] = [angebot[i].name, "" + (angebot[i].price * parseInt(stepper[i].value))];
+
+            if (target.value == angebot[i].name && target.id == "selectBeleuchtung") {
+                cartKerzen[0] = angebot[i].name;
+                cartKerzen[1] = "" + angebot[i].price;
 
             }
-            if (target.id == "check" + i || target.id == "stepper" + i) {
-                cartSchmuck[i] = [angebot[i].name, "" + (angebot[i].price * parseInt(stepper[i].value))];
+
+            if (target.id == "check" + i || target.id == "stepper" + i) {//wenn die target id check i oder stepper i heisst
+                cartSchmuck[i] = [angebot[i].name, "" + (angebot[i].price * parseInt(stepper[i].value))]; //dann speicher in cartSchmuck den name des artikels und den preis (Wert des steppers in zahl umwandeln)
 
             }
         }
         
-        let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("zusammenfassung");
+        let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("korb");
         korb.style.width = "25%";
         korb.style.height = "auto";
         korb.style.backgroundColor = "#E9F7EF";
         korb.style.color = "grey";
         
         korb.innerHTML = "<div class='warenkorb'>Warenkorb</div><hr>";
-        korb.innerHTML += "" + cartBaum[0] + " " + cartBaum[1] + " Euro <br>";
-        korb.innerHTML += "Weihnachtsbaumhalterung: " + cartHalterung[0] + " " + cartHalterung[1] + " Euro <br>";
+        korb.innerHTML += "" + cartBaum[0] + " " + cartBaum[1] + " Euro <br>"; //Name + Preis des Artikels sind in cartBaum drin
+        korb.innerHTML += "Weihnachtsbaumhalterung: " + cartHalterung[0] + " " + cartHalterung[1] + " Euro <br>"; 
+        korb.innerHTML += "" + cartKerzen[0] + " " + cartKerzen[1] + "Euro <br>";
         korb.innerHTML += " " + cartLiefern[0] + " " + cartLiefern[1] + " Euro <br>";
 
-        gesamtpreis = parseFloat(cartBaum[1]) + parseFloat(cartHalterung[1]) + parseFloat(cartLiefern[1]);
-        for (let i: number = 0; i < stepper.length; i++) {
-            if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
-                gesamtpreis += parseFloat(cartKerzen[i][1]);
-                gesamtpreis += parseFloat(cartSchmuck[i][1]);
-                korb.innerHTML += "" + cartKerzen[i][0] + " " + cartKerzen[i][1] + " Euro <br>";
-                korb.innerHTML += "" + cartSchmuck[i][0] + " " + cartSchmuck[i][1] + " Euro <br>";
+        gesamtpreis = parseFloat(cartBaum[1]) + parseFloat(cartHalterung[1]) + parseFloat(cartLiefern[1]); //parseFloat convertiert string in Zahl: Preise als Zahlen umkodieren
+        for (let i: number = 0; i < stepper.length; i++) { //alle Stepper durchgehen
+            if (checkBoxes[i] != null && checkBoxes[i].checked == true) { //wenn checkboxen angeklickt
+              
+                gesamtpreis += parseFloat(cartSchmuck[i][1]); // dann rechne zum gesamtpreis den preis des Schmuckobjekts als zahl dazu
+               
+                korb.innerHTML += "" + cartSchmuck[i][0] + " " + cartSchmuck[i][1] + " Euro <br>"; //erweitere den warenkorb durch name und preis des schmuckobjekts das angeklickt wurde
             }
         }
         korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + " Euro";
     }
 
 
-    function handleMouseDown(_event: MouseEvent): void {
+    function handleMouseDown(_event: MouseEvent): void { //bei submit button
         let review: HTMLDivElement = document.createElement("div");
         
         review.style.paddingBottom = "0.5em";
         
-        if (name.checkValidity() == false || street.checkValidity() == false ||  town.checkValidity() == false  || mail.checkValidity() == false) {
+        if (name.checkValidity() == false || strasse.checkValidity() == false ||  ort.checkValidity() == false  || mail.checkValidity() == false) {
             review.innerText = "Deine Daten sind leider nicht korrekt. Bitte ueberpruefe sie.";
             review.style.color = "#E74C3C";
             document.body.appendChild(review);

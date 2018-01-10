@@ -42,8 +42,8 @@ namespace Aufgabe10 {
         { kind: "Lieferung", name: "Morning Express Lieferung", price: 9 }
     ];
 
-    export let baumArt: string[][] = [];
-    export let kerz: string[][] = [];
+    export let baumArt: string[][] = []; //speichert temp: speichert name + preis der bäume
+    export let kerz: string[][] = []; //speichert temp: speichert name + preis der kerzen
 
     for (let i: number = 0; i < angebot.length; i++) {
         if (angebot[i].kind == "Baumart") {

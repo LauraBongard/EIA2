@@ -6,9 +6,9 @@ Datum: 15.12.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-namespace Aufgabe9 {
+namespace Aufgabe9 { // Sektion von Lager für Daten : global
 
-    window.addEventListener("load", init);
+    window.addEventListener("load", init); // wenn geladen, führe init aus
 
     let letters: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
@@ -16,7 +16,7 @@ namespace Aufgabe9 {
 
     let writingSection: HTMLDivElement;
 
-    document.addEventListener("keydown", keyboardInput); //Eventlistener wenn Buchstabe gedrückt wurde
+    document.addEventListener("keydown", keyboardInput); //Eventlistener wenn Buchstabe gedrückt wurde: keydown = event, keyboardinput = eventhandler
 
 
     function init(): void { //Div Boxen für Buchstaben erstellen
@@ -46,7 +46,7 @@ namespace Aufgabe9 {
         let s: HTMLDivElement = <HTMLDivElement>_event.target;
         s.style.backgroundColor = "lightblue"; //optische Hervorhebung bei angeklicktem Buchstaben
 
-        currentLetter = s.id; //ID des aktuellen Bcuhstabens als currentLetter speichern
+        currentLetter = s.id; //ID des angeklickten Buchstabens in currentLetter speichern
 
         let listOfDivs: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("letters"); //Jedes Div der Klasse letters in listOfDivs speichern
 

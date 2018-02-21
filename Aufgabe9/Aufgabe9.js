@@ -8,11 +8,11 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 var Aufgabe9;
 (function (Aufgabe9) {
-    window.addEventListener("load", init);
+    window.addEventListener("load", init); // wenn geladen, f�hre init aus
     let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     let currentLetter; //Variable speichert aktuellen Buchstaben
     let writingSection;
-    document.addEventListener("keydown", keyboardInput); //Eventlistener wenn Buchstabe gedr�ckt wurde
+    document.addEventListener("keydown", keyboardInput); //Eventlistener wenn Buchstabe gedr�ckt wurde: keydown = event, keyboardinput = eventhandler
     function init() {
         for (let i = 0; i < letters.length; i++) {
             let d = document.createElement("div");
@@ -31,7 +31,7 @@ var Aufgabe9;
     function handleMouseClick(_event) {
         let s = _event.target;
         s.style.backgroundColor = "lightblue"; //optische Hervorhebung bei angeklicktem Buchstaben
-        currentLetter = s.id; //ID des aktuellen Bcuhstabens als currentLetter speichern
+        currentLetter = s.id; //ID des angeklickten Buchstabens in currentLetter speichern
         let listOfDivs = document.getElementsByClassName("letters"); //Jedes Div der Klasse letters in listOfDivs speichern
         for (let i = 0; i < listOfDivs.length; i++) {
             if (currentLetter != listOfDivs[i].id) {
